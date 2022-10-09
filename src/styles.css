@@ -2,6 +2,21 @@
   box-sizing: border-box;
 }
 
+.offer {
+  border-style: solid;
+  border-color: #999;
+  margin: 1rem;
+  border-radius: 1rem;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  max-width: 150pt;
+}
+
 body {
   margin: 0;
 }

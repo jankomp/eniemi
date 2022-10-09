@@ -1,4 +1,5 @@
 import Navbar from "./Navbar"
+import Offer from "./pages/Offer"
 import Offers from "./pages/Offers"
 import Home from "./pages/Home"
 import Profile from "./pages/Profile"
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/offers" element={<Offers />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/offer" element={<Offer />} />
         </Routes>
       </div>
     </>
