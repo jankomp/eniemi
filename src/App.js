@@ -4,6 +4,7 @@ import Todo from './components/Todo';
 import { db } from './firebase.js';
 import { collection , query, orderBy , onSnapshot, addDoc,serverTimestamp} from 'firebase/firestore';
 import './App.css';
+
 const q=query(collection(db,'todos'),orderBy('timestamp','desc'));
 function App() {
 const [todos,setTodos]=useState([]);
