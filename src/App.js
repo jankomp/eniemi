@@ -1,7 +1,7 @@
 import Navbar from "./Navbar"
-import Pricing from "./pages/Pricing"
+import Offers from "./pages/Offers"
 import Home from "./pages/Home"
-import About from "./pages/About"
+import Profile from "./pages/Profile"
 import { Route, Routes } from "react-router-dom"
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/offers" element={<Offers />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </>
