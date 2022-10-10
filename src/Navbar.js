@@ -7,6 +7,7 @@ export default function Navbar() {
         E-niemi
       </Link>
       <ul>
+        <CustomLink to="/createOffer">Create Offer</CustomLink>
         <CustomLink to="/offers">Offers</CustomLink>
         <CustomLink to="/profile">Profile</CustomLink>
       </ul>

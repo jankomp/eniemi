@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import defaultImg from '../res/default.jpg';
 import sofaImg from '../res/sofa.jpg';
 import tableImg from '../res/table.jpg';
@@ -30,15 +30,10 @@ function pieces() {
     <h1>Offers</h1>
     <div>
       {piecelist.map((piece) => 
-      <div exact path="/Offer" key={piece.id} class="offer" onClick={() => CustomLink('/Offer')}>
-        {RenderPiece(piece)}</div>)}
+      <Link to={'/Offer'}><div exact path="/Offer" key={piece.id} className="offer">
+        {RenderPiece(piece)}</div></Link>)}
       </div>
     </>
   )
 }
 
-function CustomLink(to) {
-  console.log('go to offer');
-  let navigate = useNavigate();
-  navigate(to);
-}

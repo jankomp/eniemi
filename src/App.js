@@ -1,5 +1,6 @@
 import Navbar from "./Navbar"
 import Offer from "./pages/Offer"
+import CreateOffer from "./pages/CreateOffer"
 import Offers from "./pages/Offers"
 import Home from "./pages/Home"
 import Profile from "./pages/Profile"
@@ -15,6 +16,7 @@ function App() {
           <Route path="/offers" element={<Offers />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/offer" element={<Offer />} />
+          <Route path="/createOffer" element={<CreateOffer />} />
         </Routes>
       </div>
     </>
