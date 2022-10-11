@@ -1,39 +1,33 @@
-import { Link } from "react-router-dom"
-import defaultImg from '../res/default.jpg';
-import sofaImg from '../res/sofa.jpg';
-import tableImg from '../res/table.jpg';
-import chairImg from '../res/chair.jpg';
+import { Link} from "react-router-dom"
+import { db } from '../firebase.js';
+import { collection , query, orderBy , onSnapshot} from 'firebase/firestore';
+import {React, useState, useEffect} from "react";
+import OfferListItem from '../components/OfferListItem'
+
+const q=query(collection(db,'offers'),orderBy('timestamp','desc'));
 
 export default function Offers() {
-  return pieces()
-}
+  const [offers, setOffers] = useState([]);
 
-function RenderPiece(props) {
-  return (<>
-  <h2>{props.name}</h2>
-  <p>{props.desc}</p>
-  <p>{props.price}</p>
-  <img src={props.img} alt={defaultImg} className="center"/>
-  </>
-  )
-}
+  useEffect(() => {
+    onSnapshot(q,(snapshot)=>{
+      setOffers(snapshot.docs.map(doc=>({
+      id: doc.id,
+      item: doc.data
+      })))
+    })
+  });
 
-
-function pieces() {
-  const piecelist = [
-    {id: 1, name: 'chair', desc: 'beatiful chair', price: '4 €', img: chairImg}, 
-    {id:2, name: 'table', desc: 'beautiful table', price: '16 €', img: tableImg}, 
-    {id:3, name: 'sofa', desc: 'beautiful sofa', price: '14 €', img: sofaImg}
-  ];
   return (
     <>
     <h1>Offers</h1>
     <div>
-      {piecelist.map((piece) => 
-      <Link to={'/Offer'}><div exact path="/Offer" key={piece.id} className="offer">
-        {RenderPiece(piece)}</div></Link>)}
+    {offers.map(item=>
+      <Link to={'/DetailedOffer'}><OfferListItem  key={item.id} arr={item} /></Link>)}
       </div>
     </>
   )
 }
+
+
 
