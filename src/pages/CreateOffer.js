@@ -1,5 +1,7 @@
 
 import React from "react";
+import { db } from '../firebase.js';
+import { collection, addDoc, serverTimestamp} from 'firebase/firestore';
 
 export default function CreateOffer() {
     return (<><OfferForm></OfferForm></>)
@@ -16,6 +18,7 @@ class OfferForm extends React.Component {
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.submitForm = this.submitForm.bind(this);
     }
 
     handleInputChange(event) {
@@ -28,9 +31,19 @@ class OfferForm extends React.Component {
         });
     }
 
+    submitForm(event) {
+        event.preventDefault();
+        addDoc( collection(db, "offers"), {
+        name: this.state.name,
+        desc: this.state.desc,
+        price: this.state.price,
+        images: this.state.images,
+        timestamp: serverTimestamp()
+    } )}
+
     render() {
         return (
-        <form>
+        <form onSubmit={this.submitForm}>
             <label>
             Name:
             <input
@@ -56,6 +69,7 @@ class OfferForm extends React.Component {
                 type="number"
                 value={this.state.price}
                 onChange={this.handleInputChange} />
+                €
             </label>
             <br />
             <label>
@@ -68,8 +82,9 @@ class OfferForm extends React.Component {
             </label>
 
             <br />
-            <input type="submit" value="Create Offer" />
+            <input type="submit" value="Create Offer" onSubmit={this.submitForm}/>
         </form>
         );
     }
+
 }

@@ -13,7 +13,7 @@ function RenderPiece(props) {
   <h2>{props.name}</h2>
   <p>{props.desc}</p>
   <p>{props.price}</p>
-  <img src={props.img} alt={defaultImg} class="center"/>
+  <img src={props.img} alt={defaultImg} className="center"/>
   </>
   )
 }
