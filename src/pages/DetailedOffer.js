@@ -1,12 +1,52 @@
 
+
+import { db } from '../firebase.js';
+import { doc, getFirestore, getDoc} from 'firebase/firestore';
+import { React, useEffect, useState } from 'react';
+import { useParams, Router } from 'react-router-dom';
+
 import defaultImg from '../res/default.jpg';
 
-export default function DetailedOffer() {
-  return (<>
-    <h1>Chair</h1>
-    <img src="" alt={defaultImg} className="center"/>
-    <p>lorem ipsum, quia dolor sit amet consectetur adipisci[ng] velit, sed quia non numquam [do] eius modi tempora inci[di]dunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum[d] exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? [D]Quis autem vel eum i[r]ure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? [33] At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum</p>
-    </>
-    )
+export default function DetailedOffer() { 
+  const [offer, setOffer] = useState([]);
+  
+  const { id } = useParams(); 
+
+  useEffect( () => {
+      (async () => {
+        if (id) {
+          const newOffer = await read(id);
+          setOffer(newOffer);
+        }
+      })();  
+   }, []);
+  
+  if (typeof offer === "undefined") {
+    return (<h1>offer not found!</h1>)
+  } else {
+    return (<>
+      <img src={offer.img} alt={defaultImg} className="center"/>
+      <h1>{offer.name}</h1>
+      <p>{offer.desc}</p>
+      <h1>{offer.price}</h1>
+      </>
+      )
+  }
+
 }
+
+async function read(id) {
+  const db = getFirestore()
+  const docRef = doc(db, 'offers', id);
+  try {
+    const docSnap = await getDoc(docRef);
+    const data = docSnap.exists() ? docSnap.data() : null;
+
+    if (data === null || data === undefined) return null;
+    return {id, ...data};
+  } catch(error) {
+      console.log(error)
+  }
+}
+
 

@@ -9,10 +9,13 @@ return (
 <List className="offer__list">
 
 <ListItem>
-    <h2>{arr.item.name}</h2>
-    <p>{arr.item.desc}</p>
-    <p>{arr.item.price}</p>
-    <img src={arr.item.img} alt={defaultImg} className="center"/>
+    <h2>{arr.data.name}</h2>
+    <br />
+    <p>{arr.data.desc}</p>
+    <br />
+    <p>{arr.data.price}</p> €
+    <br />
+    <img src={arr.data.img} alt={defaultImg} className="center"/>
 <ListItemAvatar />
 </ListItem>
 </List>
