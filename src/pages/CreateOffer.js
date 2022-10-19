@@ -4,46 +4,41 @@ import { db } from '../firebase.js';
 import { collection, addDoc, serverTimestamp} from 'firebase/firestore';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import {Link, Routes, Route, useNavigate} from 'react-router-dom';
+import { useState } from "react";
 
 
-export default function CreateOffer() {
-    return (<><OfferForm></OfferForm></>)
-}
+export default CreateOfferComponent
 
-class OfferForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+function CreateOfferComponent(props) {
+
+    const [offer, setOffer] = useState(
+        {
             name: '',
             desc: '',
             price: 0,
             images: []
-        };
+        }
+    );
 
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.submitForm = this.submitForm.bind(this);
-    }
+    const navigate = useNavigate();
 
-    handleInputChange(event) {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-
-        this.setState({
-        [name]: value
+    const HandleInputChange = (e) => {
+        setOffer({
+            ...offer,
+            [e.target.name]: e.target.value
         });
 
-        if (target.type === 'file') {
+        if (e.target.type === 'file') {
             const storage = getStorage();
 
             const metadata = {
             contentType: 'image/jpeg'
             };
-            for (let i = 0; i < target.files.length; i++) { 
+            for (let i = 0; i < e.target.files.length; i++) { 
                 // Upload file and metadata to the object 'images/mountains.jpg'
-                const storageRef = ref(storage, 'images/' + target.names[i]);
-                //name = ref(storage, 'images/' + target.name);
-                const uploadTask = uploadBytesResumable(storageRef, target.files[i], metadata);
+                const storageRef = ref(storage, 'images/' + e.target.names[i]);
+                //name = ref(storage, 'images/' + e.target.name);
+                const uploadTask = uploadBytesResumable(storageRef, e.target.files[i], metadata);
                 
                 // Listen for state changes, errors, and completion of the upload.
                 uploadTask.on('state_changed',
@@ -89,60 +84,61 @@ class OfferForm extends React.Component {
         }
     }
 
-    submitForm(event) {
+    function SubmitForm(event) {
         event.preventDefault();
         addDoc( collection(db, "offers"), {
-        name: this.state.name,
-        desc: this.state.desc,
-        price: this.state.price,
-        images: this.state.images,
-        timestamp: serverTimestamp()
-    } )}
-
-    render() {
-        return (
-        <form onSubmit={this.submitForm}>
-            <label>
-            Name:
-            <input
-                name="name"
-                type="text"
-                value={this.state.name}
-                onChange={this.handleInputChange} />
-            </label>
-            <br />
-            <label>
-            Description:
-            <textarea
-                name="desc"
-                type="text"
-                value={this.state.desc}
-                onChange={this.handleInputChange} />
-            </label>
-            <br />
-            <label>
-            Price:
-            <input
-                name="price"
-                type="number"
-                value={this.state.price}
-                onChange={this.handleInputChange} />
-                €
-            </label>
-            <br />
-            <label>
-            Images:
-            <input
-                name="images"
-                type="file"
-                multiple
-                onChange={this.handleInputChange} />
-            </label>
-
-            <br />
-            <input type="submit" value="Create Offer" onSubmit={this.submitForm}/>
-        </form>
-        );
+            name: offer.name,
+            desc: offer.desc,
+            price: offer.price,
+            images: offer.images,
+            timestamp: serverTimestamp()
+        } ).then((newOffer) => {
+            console.log(newOffer);
+            navigate('/detailedOffer/' + newOffer.id);
+        });
     }
 
+    return (
+    <form onSubmit={SubmitForm}>
+        <label>
+        Name:
+        <input
+            name="name"
+            type="text"
+            value={offer.name}
+            onChange={HandleInputChange} />
+        </label>
+        <br />
+        <label>
+        Description:
+        <textarea
+            name="desc"
+            type="text"
+            value={offer.desc}
+            onChange={HandleInputChange} />
+        </label>
+        <br />
+        <label>
+        Price:
+        <input
+            name="price"
+            type="number"
+            value={offer.price}
+            onChange={HandleInputChange} />
+            €
+        </label>
+        <br />
+        <label>
+        Images:
+        <input
+            name="images"
+            type="file"
+            multiple
+            onChange={HandleInputChange} />
+        </label>
+
+        <br />
+        <input type="submit" value="Create Offer" onSubmit={SubmitForm}/>
+    </form>
+    );
 }
