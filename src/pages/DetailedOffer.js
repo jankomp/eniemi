@@ -24,8 +24,9 @@ export default function DetailedOffer() {
   if (typeof offer === "undefined") {
     return (<h1>offer not found!</h1>)
   } else {
+    let imageUrl = offer.images;
     return (<>
-      <img src={offer.img} alt={defaultImg} className="center"/>
+      <img src={imageUrl} alt="First Image" className="center"/>
       <h1>{offer.name}</h1>
       <p>{offer.desc}</p>
       <h1>{offer.price}</h1>

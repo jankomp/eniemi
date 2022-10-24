@@ -16,7 +16,7 @@ function CreateOfferComponent(props) {
             name: '',
             desc: '',
             price: 0,
-            images: []
+            images: ''
         }
     );
 
@@ -36,8 +36,9 @@ function CreateOfferComponent(props) {
             };
             for (let i = 0; i < e.target.files.length; i++) { 
                 // Upload file and metadata to the object 'images/mountains.jpg'
-                const storageRef = ref(storage, 'images/' + e.target.names[i]);
+                const storageRef = ref(storage, 'images/' + e.target.files[i].name);
                 //name = ref(storage, 'images/' + e.target.name);
+                console.log(e.target.files[i]);
                 const uploadTask = uploadBytesResumable(storageRef, e.target.files[i], metadata);
                 
                 // Listen for state changes, errors, and completion of the upload.
@@ -74,11 +75,16 @@ function CreateOfferComponent(props) {
                     }
                 }, 
                 () => {
-                    // Upload completed successfully, now we can get the download URL
-                    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                    console.log('File available at', downloadURL);
-                    });
-                }
+                        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                        console.log('File available at', downloadURL);
+                        setOffer(offer => {
+                            const updatedOffer = { ...offer };
+                            updatedOffer.images = downloadURL;
+                            console.log(updatedOffer);
+                            return updatedOffer;
+                        });
+                        });
+                    }
                 );
             }
         }
@@ -86,6 +92,7 @@ function CreateOfferComponent(props) {
 
     function SubmitForm(event) {
         event.preventDefault();
+        console.log(offer);
         addDoc( collection(db, "offers"), {
             name: offer.name,
             desc: offer.desc,
@@ -133,6 +140,7 @@ function CreateOfferComponent(props) {
         <input
             name="images"
             type="file"
+            accept="image/*"
             multiple
             onChange={HandleInputChange} />
         </label>

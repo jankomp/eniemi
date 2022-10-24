@@ -5,20 +5,24 @@ import { doc, deleteDoc } from "firebase/firestore";
 import defaultImg from '../res/default.jpg';
 
 const OfferListItem=({arr})=>{
-return (
-<List className="offer__list">
+    let imageurl;
+    if (arr.data.images) {
+        imageurl = arr.data.images;
+    }
 
-<ListItem>
-    <h2>{arr.data.name}</h2>
-    <br />
-    <p>{arr.data.desc}</p>
-    <br />
-    <p>{arr.data.price}</p> €
-    <br />
-    <img src={arr.data.img} alt={defaultImg} className="center"/>
-<ListItemAvatar />
-</ListItem>
-</List>
-)
+    return (
+    <List className="offer__list">
+    <ListItem>
+        <h2>{arr.data.name}</h2>
+        <br />
+        <p>{arr.data.desc}</p>
+        <br />
+        <p>{arr.data.price}</p> €
+        <br />
+        <img src={imageurl} alt="Offer image" className="center"/>
+    <ListItemAvatar />
+    </ListItem>
+    </List>
+    )
 };
 export default OfferListItem;
