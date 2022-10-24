@@ -17,7 +17,7 @@ export default function Offers() {
       data: doc.data()
       })))
     })
-  });
+  }, []);
 
   return (
     <>
