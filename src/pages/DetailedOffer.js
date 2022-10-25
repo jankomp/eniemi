@@ -4,6 +4,8 @@ import { db } from '../firebase.js';
 import { doc, getFirestore, getDoc} from 'firebase/firestore';
 import { React, useEffect, useState } from 'react';
 import { useParams, Router } from 'react-router-dom';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import defaultImg from '../res/default.jpg';
 
@@ -24,12 +26,14 @@ export default function DetailedOffer() {
   if (typeof offer === "undefined") {
     return (<h1>offer not found!</h1>)
   } else {
-    let imageUrl
+    let images;
     if (offer.images) {
-      imageUrl = offer.images[0];
+      images = Array.from(offer.images);
     }
     return (<>
-      <img src={imageUrl} alt="First Image" className="center"/>
+      <Carousel>
+        {images?.map(imageUrl => ImageDivForCarousel(imageUrl))}
+      </Carousel>
       <h1>{offer.name}</h1>
       <p>{offer.desc}</p>
       <h1>{offer.price}</h1>
@@ -37,6 +41,14 @@ export default function DetailedOffer() {
       )
   }
 
+}
+
+function ImageDivForCarousel(imageUrl) {
+  return (
+    <div>
+      <img src={imageUrl} alt="Image" className="center"/>
+    </div>
+  )
 }
 
 async function read(id) {
