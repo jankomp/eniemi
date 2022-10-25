@@ -7,7 +7,7 @@ import defaultImg from '../res/default.jpg';
 const OfferListItem=({arr})=>{
     let imageurl;
     if (arr.data.images) {
-        imageurl = arr.data.images;
+        imageurl = arr.data.images[0];
     }
 
     return (

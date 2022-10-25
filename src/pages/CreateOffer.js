@@ -16,7 +16,7 @@ function CreateOfferComponent(props) {
             name: '',
             desc: '',
             price: 0,
-            images: ''
+            images: []
         }
     );
 
@@ -29,6 +29,12 @@ function CreateOfferComponent(props) {
         });
 
         if (e.target.type === 'file') {
+            setOffer(offer => {
+                const updatedOffer = { ...offer };
+                updatedOffer.images = [];
+                return updatedOffer;
+            });
+
             const storage = getStorage();
 
             const metadata = {
@@ -79,7 +85,8 @@ function CreateOfferComponent(props) {
                         console.log('File available at', downloadURL);
                         setOffer(offer => {
                             const updatedOffer = { ...offer };
-                            updatedOffer.images = downloadURL;
+                            updatedOffer.images = Array.from(updatedOffer.images);
+                            updatedOffer.images.push(downloadURL);
                             console.log(updatedOffer);
                             return updatedOffer;
                         });
