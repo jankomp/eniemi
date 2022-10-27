@@ -1,11 +1,13 @@
-import { Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import { db } from '../firebase.js';
-import { collection , query, orderBy , onSnapshot} from 'firebase/firestore';
+import { collection , query, orderBy , onSnapshot, where} from 'firebase/firestore';
 import {React, useState, useEffect} from "react";
 
 import OfferListItem from '../components/OfferListItem'
+import OfferListFilter from "../components/OfferListFilter.js";
 
-const q=query(collection(db,'offers'),orderBy('timestamp','desc'));
+const offersRef = collection(db,'offers');
+let q=query(offersRef,orderBy('timestamp','desc'));
 
 export default function Offers() {
   const [offers, setOffers] = useState([]);
@@ -19,9 +21,24 @@ export default function Offers() {
     })
   }, []);
 
+  const returnFilter = (event, filter) => {
+    event.preventDefault();
+    console.log(filter);
+    
+    setOffers([]);
+    q=query(offersRef,where('price', '<=', filter.maxPrice));
+    onSnapshot(q,(snapshot)=>{
+      setOffers(snapshot.docs.map(doc=>({
+      id: doc.id,
+      data: doc.data()
+      })))
+    })
+  };
+
   return (
     <>
     <h1>Offers</h1>
+    <OfferListFilter returnFilter={returnFilter}></OfferListFilter>
     <div>
     {offers.map(item=>
       MapItem(item))}
