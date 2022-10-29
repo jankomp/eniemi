@@ -103,7 +103,7 @@ function CreateOfferComponent(props) {
         addDoc( collection(db, "offers"), {
             name: offer.name,
             desc: offer.desc,
-            price: offer.price,
+            price: Number(offer.price),
             images: offer.images,
             timestamp: serverTimestamp()
         } ).then((newOffer) => {

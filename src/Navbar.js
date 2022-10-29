@@ -3,7 +3,7 @@ import { Link, useMatch, useResolvedPath } from "react-router-dom"
 import { AuthContext } from "./Auth"
 
 export default function Navbar() {
-  const [currentUser, setCurrentUser] = useContext(AuthContext);
+  const [currentUser, ] = useContext(AuthContext);
   console.log("user = " + currentUser);
 
   if (currentUser) {
@@ -16,6 +16,7 @@ export default function Navbar() {
           <CustomLink to="/createOffer">Create Offer</CustomLink>
           <CustomLink to="/offers">Offers</CustomLink>
           <CustomLink to="/profile">Profile</CustomLink>
+          <CustomLink to="/logout">Logout</CustomLink>
         </ul>
       </nav>
     );

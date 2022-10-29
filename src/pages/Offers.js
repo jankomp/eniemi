@@ -6,8 +6,8 @@ import {React, useState, useEffect} from "react";
 import OfferListItem from '../components/OfferListItem'
 import OfferListFilter from "../components/OfferListFilter.js";
 
-const offersRef = collection(db,'offers');
-let q=query(offersRef,orderBy('timestamp','desc'));
+const offersRef = collection(db,"offers");
+let q=query(offersRef,orderBy("timestamp","desc"));
 
 export default function Offers() {
   const [offers, setOffers] = useState([]);
@@ -26,7 +26,7 @@ export default function Offers() {
     console.log(filter);
     
     setOffers([]);
-    q=query(offersRef,where('price', '<=', filter.maxPrice));
+    q=query(offersRef,where("price", "<=", Number(filter.maxPrice)),orderBy("price", "asc"));
     onSnapshot(q,(snapshot)=>{
       setOffers(snapshot.docs.map(doc=>({
       id: doc.id,
