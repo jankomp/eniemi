@@ -1,3 +1,11 @@
+import { getAuth } from "firebase/auth"
+
 export default function Profile() {
-  return <h1>Profile</h1>
+const auth = getAuth();
+const user = auth.currentUser;
+
+  return (<>
+    <h1>{user.displayName}</h1>
+    <p>{user.email}</p>
+    </>)
 }
