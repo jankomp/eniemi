@@ -5,18 +5,24 @@ import { collection, addDoc, serverTimestamp} from 'firebase/firestore';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import {Link, Routes, Route, useNavigate} from 'react-router-dom';
 import { useState } from "react";
+import userEvent from "@testing-library/user-event";
+import { getAuth } from "firebase/auth"
 
 
 export default CreateOfferComponent
 
 function CreateOfferComponent(props) {
+    const auth = getAuth();
+    const user = auth.currentUser;
 
     const [offer, setOffer] = useState(
         {
             name: '',
             desc: '',
             price: 0,
-            images: []
+            images: [],
+            creator: '',
+            creatorId: ''
         }
     );
 
@@ -105,6 +111,8 @@ function CreateOfferComponent(props) {
             desc: offer.desc,
             price: Number(offer.price),
             images: offer.images,
+            creator: user.displayName,
+            creatorId: user.uid,
             timestamp: serverTimestamp()
         } ).then((newOffer) => {
             console.log(newOffer);
@@ -112,48 +120,52 @@ function CreateOfferComponent(props) {
         });
     }
 
-    return (
-    <form onSubmit={SubmitForm}>
-        <label>
-        Name:
-        <input
-            name="name"
-            type="text"
-            value={offer.name}
-            onChange={HandleInputChange} />
-        </label>
-        <br />
-        <label>
-        Description:
-        <textarea
-            name="desc"
-            type="text"
-            value={offer.desc}
-            onChange={HandleInputChange} />
-        </label>
-        <br />
-        <label>
-        Price:
-        <input
-            name="price"
-            type="number"
-            value={offer.price}
-            onChange={HandleInputChange} />
-            €
-        </label>
-        <br />
-        <label>
-        Images:
-        <input
-            name="images"
-            type="file"
-            accept="image/*"
-            multiple
-            onChange={HandleInputChange} />
-        </label>
+    if (user) {
+        return (
+        <form onSubmit={SubmitForm}>
+            <label>
+            Name:
+            <input
+                name="name"
+                type="text"
+                value={offer.name}
+                onChange={HandleInputChange} />
+            </label>
+            <br />
+            <label>
+            Description:
+            <textarea
+                name="desc"
+                type="text"
+                value={offer.desc}
+                onChange={HandleInputChange} />
+            </label>
+            <br />
+            <label>
+            Price:
+            <input
+                name="price"
+                type="number"
+                value={offer.price}
+                onChange={HandleInputChange} />
+                €
+            </label>
+            <br />
+            <label>
+            Images:
+            <input
+                name="images"
+                type="file"
+                accept="image/*"
+                multiple
+                onChange={HandleInputChange} />
+            </label>
 
-        <br />
-        <input type="submit" value="Create Offer" onSubmit={SubmitForm}/>
-    </form>
-    );
+            <br />
+            <input type="submit" value="Create Offer" onSubmit={SubmitForm}/>
+        </form>
+        );
+    } else {
+        return (<h1>Not signed in.</h1>)
+    }
 }

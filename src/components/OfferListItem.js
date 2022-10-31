@@ -15,7 +15,7 @@ const OfferListItem=({arr})=>{
                 <br />
                 <p className="itemInfoLine">{arr.data.desc}</p>
                 <br />
-                <p className="itemInfoLine">{arr.data.price}€</p>
+                <p className="itemInfoLine">{arr.data.price} €</p>
                 <br />
             </div>
         <ListItemAvatar />

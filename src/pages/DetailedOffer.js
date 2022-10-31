@@ -32,9 +32,10 @@ export default function DetailedOffer() {
       <Carousel>
         {images?.map(imageUrl => ImageDivForCarousel(imageUrl))}
       </Carousel>
-      <h1>{offer.name}</h1>
-      <p>{offer.desc}</p>
-      <h1>{offer.price}</h1>
+      <h1 className="itemName">{offer.name}</h1>
+      <p className="itemInfoLine">{offer.desc}</p>
+      <h1 className="itemInfoLine">{offer.price} €</h1>
+      <p className="itemInfoLine">Seller: {offer.creator}</p>
       </>
       )
   }
@@ -44,13 +45,13 @@ export default function DetailedOffer() {
 function ImageDivForCarousel(imageUrl) {
   return (
     <div>
-      <img src={imageUrl} alt="Image" className="center"/>
+      <img src={imageUrl} alt="item" className="center"/>
     </div>
   )
 }
 
 async function read(id) {
-  const db = getFirestore()
+  //const db = getFirestore()
   const docRef = doc(db, 'offers', id);
   try {
     const docSnap = await getDoc(docRef);

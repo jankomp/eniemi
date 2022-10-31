@@ -24,8 +24,12 @@ function Login() {
             navigate('/');
           })
           .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
+            switch (error.code){
+              case 'auth/user-not-found':
+                alert("User not found. Please sign up.");
+                return;
+            }
+            alert(error.message);
           });
     }
 

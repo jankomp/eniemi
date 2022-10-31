@@ -76,7 +76,8 @@ body {
 }
 
 .listItem {
-  border:1px solid #000;
+  border:1px solid #333;
+  border-radius: 2%;
 }
 
 .noLink {
@@ -92,5 +93,5 @@ body {
 }
 
 .itemInfo {
-  margin-left: 10%;
+  margin-left: 6%;
 }
