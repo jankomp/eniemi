@@ -8,7 +8,7 @@ const OfferListItem=({arr})=>{
 
     return (
         <List className="offer__list">
-        <ListItem>
+        <ListItem className="listItem">
             <h2>{arr.data.name}</h2>
             <br />
             <p>{arr.data.desc}</p>

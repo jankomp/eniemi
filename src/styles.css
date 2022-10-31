@@ -64,3 +64,7 @@ body {
 .nav li:hover {
   background-color: #777;
 }
+
+.listItem {
+  border:1px solid #000;
+}
