@@ -2,6 +2,16 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: poppins;
+  src: url(./res/Poppins/Poppins-Black.ttf);
+}
+
+@font-face {
+  font-family: poppinsLight;
+  src: url(./res/Poppins/Poppins-Light.ttf);
+}
+
 .offer {
   border-style: solid;
   border-color: #999;
@@ -67,4 +77,20 @@ body {
 
 .listItem {
   border:1px solid #000;
+}
+
+.noLink {
+  text-decoration: none;
+  color: #000;
+}
+
+.itemName {
+  font-family: poppins;
+}
+.itemInfoLine {
+  font-family: poppinsLight;
+}
+
+.itemInfo {
+  margin-left: 10%;
 }

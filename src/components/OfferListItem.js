@@ -9,13 +9,15 @@ const OfferListItem=({arr})=>{
     return (
         <List className="offer__list">
         <ListItem className="listItem">
-            <h2>{arr.data.name}</h2>
-            <br />
-            <p>{arr.data.desc}</p>
-            <br />
-            <p>{arr.data.price}</p> €
-            <br />
             <img src={imageurl} alt="Offer image" className="center"/>
+            <div className="itemInfo">
+                <h2 className="itemName">{arr.data.name}</h2>
+                <br />
+                <p className="itemInfoLine">{arr.data.desc}</p>
+                <br />
+                <p className="itemInfoLine">{arr.data.price}€</p>
+                <br />
+            </div>
         <ListItemAvatar />
         </ListItem>
         </List>

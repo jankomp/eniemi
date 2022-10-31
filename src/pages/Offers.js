@@ -48,7 +48,7 @@ export default function Offers() {
 
   function MapItem(item)
   {
-    return <Link to={'/DetailedOffer/' + item.id} key={item.id} ><OfferListItem  key={item.id} arr={item} /></Link>
+    return <Link to={'/DetailedOffer/' + item.id} key={item.id} className="noLink"><OfferListItem  key={item.id} arr={item} /></Link>
   }
 }
 
