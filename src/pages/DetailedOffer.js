@@ -1,9 +1,10 @@
 
 
 import { db } from '../firebase.js';
-import { doc, getFirestore, getDoc} from 'firebase/firestore';
+import { doc, getDoc, deleteDoc} from 'firebase/firestore';
+import { getAuth } from "firebase/auth"
 import { React, useEffect, useState } from 'react';
-import { useParams, Router } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -11,6 +12,10 @@ export default function DetailedOffer() {
   const [offer, setOffer] = useState([]);
   
   const { id } = useParams(); 
+
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const navigate = useNavigate();
 
   useEffect( () => {
       (async () => {
@@ -36,11 +41,28 @@ export default function DetailedOffer() {
       <p className="itemInfoLine">{offer.desc}</p>
       <h1 className="itemInfoLine">{offer.price} €</h1>
       <p className="itemInfoLine">Seller: {offer.creator}</p>
+      <DeleteBtn></DeleteBtn>
       </>
       )
   }
 
+  function DeleteBtn() {
+    const deleteEvent = (e) => {
+      e.preventDefault();
+
+      if (window.confirm("Do you really want to delete this offer?")) {
+        deleteDoc(doc(db,'offers',id));
+        navigate('/');
+        alert("Item " + offer.name +  " deleted");
+      }
+    }
+
+    if (user.uid === offer.creatorId) {
+      return (<button onClick={deleteEvent}>Delete</button>)
+    }
+  }
 }
+
 
 function ImageDivForCarousel(imageUrl) {
   return (

@@ -3,9 +3,8 @@ import React from "react";
 import { db } from '../firebase.js';
 import { collection, addDoc, serverTimestamp} from 'firebase/firestore';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import {Link, Routes, Route, useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
-import userEvent from "@testing-library/user-event";
 import { getAuth } from "firebase/auth"
 
 
