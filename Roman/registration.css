@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+    background-color: #EEEEEE
+}
+
+a {
+    color: #333333;
+    text-decoration:none;
+
+
+}
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+main {
+    width: 50%;
+    display: flex; /* or inline-flex */
+    flex-direction: column;
+} 
+
+form {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.input_bar {
+    appearance: none;
+    background-image: none;
+    border: 0px;
+    display: block;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: spotify-circular, Helvetica, Arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 4px;
+    padding: 14px;
+    background-color: var(--background-base,#ffffff);
+    box-shadow: inset 0 0 0 1px var(--essential-subdued,#878787);
+    color: var(--text-base,#000000);
+}
+.field_group {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-transform: none;
+    letter-spacing: normal;
+}
+.age_fields {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    
+}
+.age_field {
+    width: 90px;
+}
+.labelgroup  {
+   
+    box-sizing: border-box;
+    font-family: spotify-circular, Helvetica, Arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    font-weight: 700;
+    width: 100%;
+    padding-bottom: 8px;
+}
+
+.registration_button_container {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.register_button {
+    width: 80%;
+    font-weight: 700;
+    font-family: spotify-circular, Helvetica, Arial, sans-serif;
+    box-shadow: inset 0 0 0 1px var(--essential-subdued,#878787);
+    margin-top: 20px;
+    position: relative;
+    background-color: var(--background-base, wHITE);
+    color: var(--text-base,#000000);
+    border-radius: 500px;
+    font-size: inherit;
+    padding: 16px 48px;
+}
