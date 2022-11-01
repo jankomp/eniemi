@@ -40,9 +40,9 @@ export default function Offers() {
     <h1>Offers</h1>
     <OfferListFilter returnFilter={returnFilter}></OfferListFilter>
     <div>
-    {offers.map(item=>
-      MapItem(item))}
-      </div>
+      {offers.map(item=>
+        MapItem(item))}
+    </div>
     </>
   )
 
