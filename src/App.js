@@ -13,7 +13,6 @@ import { AuthProvider } from "./Auth"
 function App() {
   return (
     <AuthProvider>
-      <Navbar />
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -25,6 +24,7 @@ function App() {
           <Route path="/logout" element={<Logout />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
+      <Navbar />
       </div>
     </AuthProvider>
   )

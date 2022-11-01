@@ -13,10 +13,10 @@ export default function Navbar() {
           E-niemi
         </Link>
         <ul>
-          <CustomLink to="/createOffer">Create Offer</CustomLink>
-          <CustomLink to="/offers">Offers</CustomLink>
-          <CustomLink to="/profile">Profile</CustomLink>
-          <CustomLink to="/logout">Logout</CustomLink>
+          <CustomLink to="/createOffer" className="navBarLink">Create Offer</CustomLink>
+          <CustomLink to="/offers" className="navBarLink">Offers</CustomLink>
+          <CustomLink to="/profile" className="navBarLink">Profile</CustomLink>
+          <CustomLink to="/logout" className="navBarLink">Logout</CustomLink>
         </ul>
       </nav>
     );
@@ -27,8 +27,8 @@ export default function Navbar() {
           E-niemi
         </Link>
         <ul>
-          <CustomLink to="/offers">Offers</CustomLink>
-          <CustomLink to="login">Login</CustomLink>
+          <CustomLink to="/offers" className="navBarLink">Offers</CustomLink>
+          <CustomLink to="login" className="navBarLink">Login</CustomLink>
         </ul>
       </nav>
     );
