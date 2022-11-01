@@ -57,8 +57,10 @@ export default function DetailedOffer() {
       }
     }
 
-    if (user.uid === offer.creatorId) {
-      return (<button onClick={deleteEvent}>Delete</button>)
+    if(user) {
+      if (user.uid === offer.creatorId) {
+        return (<button onClick={deleteEvent}>Delete</button>)
+      }
     }
   }
 }

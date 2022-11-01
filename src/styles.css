@@ -76,13 +76,13 @@ body {
 }
 
 .listItem {
-  border:1px solid #333;
+  border:1px solid #777;
   border-radius: 2%;
 }
 
 .noLink {
   text-decoration: none;
-  color: #000;
+  color: #484543;
 }
 
 .itemName {
