@@ -3,7 +3,7 @@
 }
 
 @font-face {
-  font-family: poppins;
+  font-family: poppinsBlack;
   src: url(./res/Poppins/Poppins-Black.ttf);
 }
 
@@ -37,10 +37,19 @@ body {
   align-items: stretch;
   gap: 2rem;
   padding: 0 1rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 .site-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-family: poppinsBlack;
+}
+
+.navBarLink {
+  font-family: poppinsLight;
 }
 
 .nav ul {
@@ -79,7 +88,7 @@ body {
 }
 
 .itemName {
-  font-family: poppins;
+  font-family: poppinsBlack;
 }
 .itemInfoLine {
   font-family: poppinsLight;
@@ -87,4 +96,13 @@ body {
 
 .itemInfo {
   margin-left: 6%;
+}
+
+.userFormLine {
+  font-family: poppinsLight;
+  margin-right: 5%;
+}
+
+.pageTitle {
+  font-family: poppinsBlack;
 }

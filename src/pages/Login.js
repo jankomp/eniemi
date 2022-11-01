@@ -43,21 +43,22 @@ function Login() {
   return (
     <>
         <div>
-        <h1>Log in</h1>
+        <h1 className="pageTitle">Log in</h1>
         <form onSubmit={handleLogin}>
-            <label>
+            <label className="userFormLine">
             Email
+            </label>
             <input name="email" type="email" placeholder="Email" onChange={HandleInputChange}/>
-            </label>
-            <label>
+            <br/>
+            <label className="userFormLine">
             Password
-            <input name="password" type="password" placeholder="Password" onChange={HandleInputChange}/>
             </label>
-            <button type="submit">Log in</button>
+            <input name="password" type="password" placeholder="Password" onChange={HandleInputChange}/>
+            <button type="submit" className="userFormLine">Log in</button>
         </form>
         </div>
-        <label>Not registered? </label>
-        <Link to={'/signup'}>signup</Link>
+        <label className="userFormLine">Not registered? </label>
+        <Link to={'/signup'} className="userFormLine">signup</Link>
     </>
   );
 };
