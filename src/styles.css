@@ -12,13 +12,6 @@
   src: url(./res/Poppins/Poppins-Light.ttf);
 }
 
-.offer {
-  border-style: solid;
-  border-color: #999;
-  margin: 1rem;
-  border-radius: 1rem;
-}
-
 .center {
   display: block;
   margin-left: auto;
