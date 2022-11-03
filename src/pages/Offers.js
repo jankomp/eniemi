@@ -23,10 +23,10 @@ export default function Offers() {
 
   const returnFilter = (event, filter) => {
     event.preventDefault();
-    console.log(filter);
+    //console.log(filter);
     
     setOffers([]);
-    q=query(offersRef,where("price", "<=", Number(filter.maxPrice)),orderBy("price", "asc"));
+    q=query(offersRef,where("price", "<=", Number(filter.maxPrice)),orderBy("price", "asc"),where("category","==",filter.category));
     onSnapshot(q,(snapshot)=>{
       setOffers(snapshot.docs.map(doc=>({
       id: doc.id,

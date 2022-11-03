@@ -4,7 +4,7 @@ import { AuthContext } from "./Auth"
 
 export default function Navbar() {
   const [currentUser, ] = useContext(AuthContext);
-  console.log("user = " + currentUser);
+  //console.log("user = " + currentUser);
 
   if (currentUser) {
     return (

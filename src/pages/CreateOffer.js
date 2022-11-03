@@ -6,6 +6,7 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import { getAuth } from "firebase/auth"
+import CategoryDropDown from "../components/CategoryDropDown.js";
 
 
 export default CreateOfferComponent
@@ -16,6 +17,7 @@ function CreateOfferComponent(props) {
 
     const [offer, setOffer] = useState(
         {
+            category: '',
             name: '',
             desc: '',
             price: 0,
@@ -26,6 +28,13 @@ function CreateOfferComponent(props) {
     );
 
     const navigate = useNavigate();
+
+    function CategorySelected(newCategory) {
+        setOffer({
+            ...offer,
+            category: newCategory[0].label
+        });
+    }
 
     const HandleInputChange = (e) => {
         setOffer({
@@ -49,7 +58,7 @@ function CreateOfferComponent(props) {
                 // Upload file and metadata to the object 'images/mountains.jpg'
                 const storageRef = ref(storage, 'images/' + e.target.files[i].name);
                 //name = ref(storage, 'images/' + e.target.name);
-                console.log(e.target.files[i]);
+                //console.log(e.target.files[i]);
                 const uploadTask = uploadBytesResumable(storageRef, e.target.files[i], metadata);
                 
                 // Listen for state changes, errors, and completion of the upload.
@@ -92,7 +101,7 @@ function CreateOfferComponent(props) {
                             const updatedOffer = { ...offer };
                             updatedOffer.images = Array.from(updatedOffer.images);
                             updatedOffer.images.push(downloadURL);
-                            console.log(updatedOffer);
+                            //console.log(updatedOffer);
                             return updatedOffer;
                         });
                         });
@@ -104,8 +113,9 @@ function CreateOfferComponent(props) {
 
     function SubmitForm(event) {
         event.preventDefault();
-        console.log(offer);
+        //console.log(offer);
         addDoc( collection(db, "offers"), {
+            category: offer.category,
             name: offer.name,
             desc: offer.desc,
             price: Number(offer.price),
@@ -114,7 +124,7 @@ function CreateOfferComponent(props) {
             creatorId: user.uid,
             timestamp: serverTimestamp()
         } ).then((newOffer) => {
-            console.log(newOffer);
+            //console.log(newOffer);
             navigate('/detailedOffer/' + newOffer.id);
         });
     }
@@ -123,22 +133,27 @@ function CreateOfferComponent(props) {
         return (
         <form onSubmit={SubmitForm}>
             <label>
+            Category:
+            </label>
+            <CategoryDropDown valueSelected={CategorySelected} />
+            <br />
+            <label>
             Name:
+            </label>
             <input
                 name="name"
                 type="text"
                 value={offer.name}
                 onChange={HandleInputChange} />
-            </label>
             <br />
             <label>
             Description:
+            </label>
             <textarea
                 name="desc"
                 type="text"
                 value={offer.desc}
                 onChange={HandleInputChange} />
-            </label>
             <br />
             <label>
             Price:
@@ -152,13 +167,13 @@ function CreateOfferComponent(props) {
             <br />
             <label>
             Images:
+            </label>
             <input
                 name="images"
                 type="file"
                 accept="image/*"
                 multiple
                 onChange={HandleInputChange} />
-            </label>
 
             <br />
             <input type="submit" value="Create Offer" onSubmit={SubmitForm}/>
