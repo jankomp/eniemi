@@ -1,12 +1,26 @@
 import {React, useState} from "react";
+import CategoryDropDown from "./CategoryDropDown";
 
 
 export default function OfferListFilter({returnFilter}) {
     const [filter, setFilter] = useState(
         {
+            category: '',
             maxPrice: 0
         }
     );
+
+    /* const localClearFilter =(e) => {
+        setFilter([]);
+        returnFilter(e, filter);
+    } */
+
+    function CategorySelected(newCategory) {
+        setFilter({
+            ...filter,
+            category: newCategory[0].label
+        });
+    }
 
     const HandleInputChange = (e) => {
         setFilter({
@@ -15,8 +29,13 @@ export default function OfferListFilter({returnFilter}) {
         });
     }
 
-    return (
+    return (<>
         <form onSubmit={event => returnFilter(event, filter)}>
+             <label>
+            Category:
+            </label>
+            <CategoryDropDown valueSelected={CategorySelected} />
+            <br />
             <label >
                 Maximum price:
             </label>
@@ -27,5 +46,7 @@ export default function OfferListFilter({returnFilter}) {
                 onChange={HandleInputChange} />
             <input type="submit" value="Apply Filter"/>
         </form>
+        {/* <button onClick={localClearFilter}>Clear filter</button> */}
+        </>
     )
 }
