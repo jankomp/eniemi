@@ -42,6 +42,7 @@ export default function DetailedOffer() {
       <h1 className="itemInfoLine">{offer.price} €</h1>
       <p className="itemInfoLine">Seller: {offer.creator}</p>
       <DeleteBtn></DeleteBtn>
+      <ContactBtn></ContactBtn>
       </>
       )
   }
@@ -63,6 +64,21 @@ export default function DetailedOffer() {
       }
     }
   }
+
+  function ContactBtn() {
+    const contactEvent = (e) => {
+      e.preventDefault();
+
+      navigate('/chat/' + offer.creatorId, { state: { id: offer.creatorId, displayName: offer.creator } });
+    }
+
+    
+    if(user) {
+      if (user.uid !== offer.creatorId) {
+        return (<button onClick={contactEvent}>Contact</button>)
+      }
+    }
+  }
 }
 
 
@@ -75,7 +91,6 @@ function ImageDivForCarousel(imageUrl) {
 }
 
 async function read(id) {
-  //const db = getFirestore()
   const docRef = doc(db, 'offers', id);
   try {
     const docSnap = await getDoc(docRef);

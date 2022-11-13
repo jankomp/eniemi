@@ -1,16 +1,11 @@
 import { useState,  useEffect } from "react";
 import { db } from '../firebase.js';
-import { collection , query, onSnapshot } from 'firebase/firestore';
+import { collection , query, onSnapshot, orderBy } from 'firebase/firestore';
 import Select from "react-dropdown-select";
 
 export default function CategoryDropDown({valueSelected}) {
     const categoriesRef = collection(db,"categories");
-    let q=query(categoriesRef);
-
-    let options = [
-        {label:"hello", value: 1},
-        {label:"world", value: 2}
-    ];
+    let q=query(categoriesRef,orderBy("value","asc"));
 
     const [categories, setCategories] = useState([]);
 

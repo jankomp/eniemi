@@ -15,6 +15,7 @@ export default function Navbar() {
         <ul>
           <CustomLink to="/createOffer" className="navBarLink">Create Offer</CustomLink>
           <CustomLink to="/offers" className="navBarLink">Offers</CustomLink>
+          <CustomLink to="/chats" className="navBarLink">Chats</CustomLink>
           <CustomLink to="/profile" className="navBarLink">Profile</CustomLink>
           <CustomLink to="/logout" className="navBarLink">Logout</CustomLink>
         </ul>
