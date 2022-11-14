@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getAuth } from "firebase/auth"
 import { db } from '../firebase.js';
 import { collection , query, orderBy , onSnapshot} from 'firebase/firestore';
+import { Container } from '@mui/system';
 
 
 
@@ -53,10 +54,12 @@ export default function MessageList({ chatId }) {
 function Message({ message, isOwnMessage }) {
     const { displayName, text } = message;
     return (
+  
         <li className={['message', isOwnMessage && 'own-message'].join(' ')}>
             <h4 className="sender">{isOwnMessage ? 'You' : displayName}</h4>
-            <div>{text}</div>
+            <div className="text">{text}</div>
         </li>
+
     );
 }
 
