@@ -40,8 +40,7 @@ export default function Chat() {
             {
                 setDoc(chatRef, {
                     user1Id: users[0],
-                    user2Id: users[1],
-                    user1DisplayName: user.displayName
+                    user2Id: users[1]
                 }, { merge: true } );
             }
         }
