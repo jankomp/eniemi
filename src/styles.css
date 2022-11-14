@@ -1,10 +1,17 @@
+/* The styles to all pages */
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 @font-face {
   font-family: poppinsBlack;
   src: url(./res/Poppins/Poppins-Black.ttf);
+}
+
+@font-face {
+  font-family: poppinsLight;
+  src: url(./res/Poppins/Poppins-Light.ttf);
 }
 
 @font-face {
@@ -19,10 +26,6 @@
   width: 50%;
   max-width: 150pt;
   
-}
-
-body {
-  margin: 0;
 }
 
 .container {
@@ -107,6 +110,7 @@ body {
 .pageTitle {
   font-family: poppinsBlack;
 }
+
 
 .select {
   

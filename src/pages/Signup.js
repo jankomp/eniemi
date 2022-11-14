@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Auth";
 import { auth } from '../firebase';
 
+// Add styles to the page
+import "./styles_css/signup_page.css"
+
 export default Signup
 
 function Signup() {
@@ -56,28 +59,44 @@ function Signup() {
     }
 
     return (
-        <>
-            <div>
-            <h1>Sign up</h1>
-            <form onSubmit={createUser}>
-                <label>
-                Name
-                <input name="name" type="name" placeholder="Name" onChange={HandleInputChange}/>
-                </label>
-                <br />
-                <label>
-                Email
-                <input name="email" type="email" placeholder="Email" onChange={HandleInputChange}/>
-                </label>
-                <br />
-                <label>
-                Password
-                <input name="password" type="password" placeholder="Password" onChange={HandleInputChange}/>
-                </label>
-                <br />
-                <button type="submit">Sign up</button>
-            </form>
-            </div>
+        <>  
+            <main>
+                <div class="title">
+                    E-niemi
+                    <div class="sub-title">
+                    Registration
+                    </div>
+                </div>
+                <form action="#" onSubmit={createUser}>
+                    <div class="field_group">
+                        <div class="labelgroup">
+                            <label for="name" >Your name </label>
+                        </div>
+                        <input id="name" placeholder="Enter your name" class="input_bar" onChange={HandleInputChange}></input>
+        
+                    </div>
+
+                    <div class="field_group">
+                            <div class="labelgroup">
+                                <label for="email">Your email</label>
+                            </div>
+                            <input id="email" placeholder="Enter your email" class="input_bar" onChange={HandleInputChange}></input>
+
+                    </div>
+
+                    <div class="field_group">
+                            <div class="labelgroup">
+                                <label for="password">Create your password </label>
+                            </div>
+                            <input id="password" placeholder="Enter your password" class="input_bar" onChange={HandleInputChange}></input>
+                    </div>
+
+                    <button class="submit-button" type="submit" >Sign up</button>
+                    
+                </form>    
+            </main>
+
+
         </>
     )
 }
