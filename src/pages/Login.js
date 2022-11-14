@@ -4,6 +4,8 @@ import { Link } from "react-router-dom"
 import { auth } from "../firebase.js";
 import { AuthContext } from "../Auth.js";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { TextField, Button} from "@mui/material"
+import { padding } from "@mui/system";
 
 function Login() {
 
@@ -43,22 +45,47 @@ function Login() {
   return (
     <>
         <div>
-        <h1 className="pageTitle">Log in</h1>
+        <h1 className="pageTitle">E-Niemi</h1>
         <form onSubmit={handleLogin}>
             <label className="userFormLine">
             Email
             </label>
-            <input name="email" type="email" placeholder="Email" onChange={HandleInputChange}/>
             <br/>
+            <TextField variant="outlined" 
+             name="email"
+             onChange={HandleInputChange}
+             placeholder="Please enter text"
+             />
+            <br/>
+            <br/>
+
             <label className="userFormLine">
             Password
             </label>
-            <input name="password" type="password" placeholder="Password" onChange={HandleInputChange}/>
-            <button type="submit" className="userFormLine">Log in</button>
+            <br/>
+            <TextField variant="outlined" 
+             name="password"
+             onChange={HandleInputChange}
+             placeholder="Please enter text"/>
+            <br/>
+
+            <br/><br/><br/>
+
+            <Button variant="contained"
+            type="submit"
+            className="userFormLine"
+            sx={{ borderRadius: 40
+             }}
+
+            >Start!
+        
+            </Button>
+
+            <br/>
+
         </form>
         </div>
-        <label className="userFormLine">Not registered? </label>
-        <Link to={'/signup'} className="userFormLine">signup</Link>
+        <Link to={'/signup'} className="userFormLine">Not registered? signup!</Link>
     </>
   );
 };
