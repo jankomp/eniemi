@@ -7,6 +7,8 @@ import Profile from "./pages/Profile"
 import Login from "./pages/Login"
 import Logout from "./pages/Logout"
 import Signup from "./pages/Signup"
+import Chat from "./pages/Chat"
+import Chats from "./pages/Chats"
 import { Route, Routes } from "react-router-dom"
 import { AuthProvider } from "./Auth"
 
@@ -23,6 +25,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/chat/:otherUserId" element={<Chat />} />
+          <Route path="/chats" element={<Chats />} />
         </Routes>
       <Navbar />
       </div>
