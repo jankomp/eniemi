@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { getAuth } from "firebase/auth"
 import { db } from '../firebase.js';
 import { collection , query, orderBy , onSnapshot} from 'firebase/firestore';
@@ -11,7 +11,8 @@ export default function MessageList({ chatId }) {
     const auth = getAuth();
     const user = auth.currentUser;
     
-    
+    const bottomRef = useRef(null);
+
     const [messages, setMessages] = useState();
 
     useEffect(() => {
@@ -28,11 +29,10 @@ export default function MessageList({ chatId }) {
         }
     }, []);
 
-    React.useLayoutEffect(() => {
-        if (containerRef.current) {
-            containerRef.current.scrollTop = containerRef.current.scrollHeight;
-        }
-    });
+    useEffect(() => {
+        // 👇️ scroll to bottom every time messages change
+        bottomRef.current?.scrollIntoView({behavior: 'smooth'});
+      }, [messages]);
 
     if (messages) {
         return (
@@ -45,6 +45,7 @@ export default function MessageList({ chatId }) {
                             isOwnMessage={x.data.uid === user.uid}
                         />
                     ))}
+                    <div ref={bottomRef} />
                 </ul>
             </div>
         );  
