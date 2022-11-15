@@ -6,7 +6,9 @@ import { db } from '../firebase.js';
 import { addDoc, setDoc, doc } from "firebase/firestore";
 
 import { MessageList } from "../components/MessageList.js";
-import { MessageInput } from "../components/MessageInput.js"
+import { MessageInput } from "../components/MessageInput.js";
+
+import "./styles_css/chat.css"
 
 
 export default function Chat() {
@@ -44,10 +46,10 @@ export default function Chat() {
         <>
             <div className="messages-container">
                 <h1 className="heading">Chat</h1>
-                <br></br>
-                <br></br>
-                <MessageList chatId={chatId}/>
-                <MessageInput chatId={chatId}/>
+                <MessageList className="messageList" chatId={chatId}/>
+                <br/>
+                <MessageInput className="messageInput" chatId={chatId}/>
+                <br/>
             </div>
         </>
     );

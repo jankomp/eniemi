@@ -53,6 +53,7 @@ function Login() {
             <br/>
             <TextField variant="outlined" 
              name="email"
+             type="email"
              onChange={HandleInputChange}
              placeholder="Please enter text"
              />
@@ -65,6 +66,7 @@ function Login() {
             <br/>
             <TextField variant="outlined" 
              name="password"
+             type="password"
              onChange={HandleInputChange}
              placeholder="Please enter text"/>
             <br/>

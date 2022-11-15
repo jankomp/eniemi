@@ -61,37 +61,37 @@ function Signup() {
     return (
         <>  
             <main>
-                <div class="title">
+                <div className="title">
                     E-niemi
-                    <div class="sub-title">
+                    <div className="sub-title">
                     Registration
                     </div>
                 </div>
                 <form action="#" onSubmit={createUser}>
-                    <div class="field_group">
-                        <div class="labelgroup">
+                    <div className="field_group">
+                        <div className="labelgroup">
                             <label for="name" >Your name </label>
                         </div>
-                        <input id="name" placeholder="Enter your name" class="input_bar" onChange={HandleInputChange}></input>
+                        <input name="name" type="text" placeholder="Enter your name" className="input_bar" onChange={HandleInputChange}></input>
         
                     </div>
 
-                    <div class="field_group">
-                            <div class="labelgroup">
+                    <div className="field_group">
+                            <div className="labelgroup">
                                 <label for="email">Your email</label>
                             </div>
-                            <input id="email" placeholder="Enter your email" class="input_bar" onChange={HandleInputChange}></input>
+                            <input name="email" type="email" placeholder="Enter your email" className="input_bar" onChange={HandleInputChange}></input>
 
                     </div>
 
-                    <div class="field_group">
-                            <div class="labelgroup">
+                    <div className="field_group">
+                            <div className="labelgroup">
                                 <label for="password">Create your password </label>
                             </div>
-                            <input id="password" placeholder="Enter your password" class="input_bar" onChange={HandleInputChange}></input>
+                            <input name="password" type="password" placeholder="Enter your password" className="input_bar" onChange={HandleInputChange}></input>
                     </div>
 
-                    <button class="submit-button" type="submit" >Sign up</button>
+                    <button className="submit-button" type="submit" >Sign up</button>
                     
                 </form>    
             </main>
