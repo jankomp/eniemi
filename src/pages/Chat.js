@@ -43,7 +43,9 @@ export default function Chat() {
     return (
         <>
             <div className="messages-container">
-                <h1>Chat</h1>
+                <h1 className="heading">Chat</h1>
+                <br></br>
+                <br></br>
                 <MessageList chatId={chatId}/>
                 <MessageInput chatId={chatId}/>
             </div>

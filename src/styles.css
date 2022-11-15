@@ -131,6 +131,7 @@
   border-radius: 20px;
   text-align: left;
   -webkit-text-fill-color: #393939;
+  
 }
 
 .own-message {
@@ -140,19 +141,36 @@
   -webkit-text-fill-color: white;
 }
 
+
+.message-input-container {
+  display: flex;
+  gap: 4px;
+}
+
 .message-input{
   position: fixed;
   display: flex;
   bottom: 10%;
   width: 80%;
-  flex:1;
+  flex:2;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
   border-radius: 40px
 }
 
-.message-input-container {
+.send-message{
+  position: fixed;
   display: flex;
-  gap: 4px;
+  bottom: 10%;
+  width: 10%;
+  box-sizing: border-box;
+  border-radius: 40px
+}
+
+.heading{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #FFFFFF;
 }
