@@ -59,7 +59,7 @@ function Login() {
                             <div class="labelgroup">
                                 <label for="email">Your email</label>
                             </div>
-                            <input id="email" placeholder="Enter your email" class="input_bar" onChange={HandleInputChange}></input>
+                            <input name="email" id="email" placeholder="Enter your email" class="input_bar" onChange={HandleInputChange}></input>
 
                     </div>
 
@@ -67,7 +67,7 @@ function Login() {
                             <div class="labelgroup">
                                 <label for="password">Create your password </label>
                             </div>
-                            <input id="password" placeholder="Enter your password" class="input_bar" type = "password" onChange={HandleInputChange}></input>
+                            <input name="password" id="password" placeholder="Enter your password" class="input_bar" type = "password" onChange={HandleInputChange}></input>
                     </div>
 
                     <button class="submit-button" type="submit" >Start!</button>

@@ -73,7 +73,7 @@ function Signup() {
                         <div class="labelgroup">
                             <label for="name" >Your name </label>
                         </div>
-                        <input id="name" placeholder="Enter your name" class="input_bar" onChange={HandleInputChange}></input>
+                        <input name="name" id="name" placeholder="Enter your name" class="input_bar" onChange={HandleInputChange}></input>
         
                     </div>
 
@@ -81,15 +81,14 @@ function Signup() {
                             <div class="labelgroup">
                                 <label for="email">Your email</label>
                             </div>
-                            <input id="email" placeholder="Enter your email" class="input_bar" onChange={HandleInputChange}></input>
-
+                            <input name="email" id="email" placeholder="Enter your email" class="input_bar" onChange={HandleInputChange}></input>
                     </div>
 
                     <div class="field_group">
                             <div class="labelgroup">
                                 <label for="password">Create your password </label>
                             </div>
-                            <input id="password" placeholder="Enter your password" type = "password" class="input_bar" onChange={HandleInputChange}></input>
+                            <input name="password" id="password" placeholder="Enter your password" type = "password" class="input_bar" onChange={HandleInputChange}></input>
                     </div>
 
                     <button class="submit-button" type="submit" >Sign up</button>
