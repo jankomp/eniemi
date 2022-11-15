@@ -7,6 +7,9 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { TextField, Button} from "@mui/material"
 import { padding } from "@mui/system";
 
+// Add styles to the page
+import "./styles_css/login_page.css"
+
 function Login() {
 
     const [login, setLogin] = useState({
@@ -42,7 +45,7 @@ function Login() {
         });
     }
 
-  return (
+  return (   
     <>
         <div>
         <h1 className="pageTitle">E-Niemi</h1>
@@ -78,7 +81,6 @@ function Login() {
             className="userFormLine"
             sx={{ borderRadius: 40
              }}
-
             >Start!
         
             </Button>

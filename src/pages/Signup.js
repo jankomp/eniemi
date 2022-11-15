@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfi
 import { db } from '../firebase.js';
 import { collection, addDoc } from "firebase/firestore";
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Auth";
 import { auth } from '../firebase';
@@ -67,6 +68,7 @@ function Signup() {
                     Registration
                     </div>
                 </div>
+
                 <form action="#" onSubmit={createUser}>
                     <div className="field_group">
                         <div className="labelgroup">
@@ -80,7 +82,9 @@ function Signup() {
                             <div className="labelgroup">
                                 <label for="email">Your email</label>
                             </div>
+
                             <input name="email" type="email" placeholder="Enter your email" className="input_bar" onChange={HandleInputChange}></input>
+
 
                     </div>
 
@@ -88,15 +92,16 @@ function Signup() {
                             <div className="labelgroup">
                                 <label for="password">Create your password </label>
                             </div>
-                            <input name="password" type="password" placeholder="Enter your password" className="input_bar" onChange={HandleInputChange}></input>
+                            <input name="password" id="password" placeholder="Enter your password" type = "password" class="input_bar" onChange={HandleInputChange}></input>
                     </div>
 
-                    <button className="submit-button" type="submit" >Sign up</button>
-                    
+                    <button class="submit-button" type="submit" >Sign up</button>
+
+                    <div class="link-to-registration">
+                    <Link to={'/login'} class="link" >Already have an account? Log in.</Link>
+                    </div>
                 </form>    
             </main>
-
-
         </>
     )
 }

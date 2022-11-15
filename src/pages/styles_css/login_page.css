@@ -1,0 +1,96 @@
+main {
+    width: 50%;
+    min-width: 200px;
+    display: flex; /* or inline-flex */
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+} 
+
+form {
+    margin: auto;
+    width: 100%;    
+}
+
+.title {
+    font-size: 1rem;
+    font-family: poppinsBlack;
+    font-size: 48px;
+    color: #484543;
+    padding-bottom: 20px;
+}
+
+.sub-title {
+    font-size: 1rem;
+    font-family: poppinsBlack;
+    font-size: 20px;
+    color: #484543;
+}
+
+.input_bar {
+    appearance: none;
+    background-image: none;
+    border: 0px;
+    display: block;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    width: 100%;
+    max-width: 450px;
+    box-sizing: border-box;
+    font-family: poppinsLight;
+    -webkit-tap-highlight-color: transparent;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 14px;
+    background-color: var(--background-base,#ffffff);
+    box-shadow: inset 0 0 0 1px var(--essential-subdued,#878787);
+    color: #484543;
+    margin: auto;
+}
+.field_group {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-transform: none;
+    letter-spacing: normal;
+    width: 100%;
+    max-width: 450px;
+    min-width: 150px;
+    margin: auto;
+}
+.labelgroup {
+    
+    text-align: center;
+    box-sizing: border-box;
+    font-family: poppinsLight;
+    color: #484543;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    font-weight: 700;
+    width: 100%;
+    padding-top: 8px;
+}
+.submit-button, .input_bar{
+        border-radius: 100px; 
+}
+.submit-button{
+    margin-top: 40px;
+    width: 40%;
+    min-width: 150px;
+    height: 50px;
+    background-color: #484543;
+
+    font-size: 24px;
+    color: White;
+}
+.link-to-registration {
+    margin-top: 50px;
+}
+.link{
+    color: #484543;
+    font-family: poppinsLight;
+}
