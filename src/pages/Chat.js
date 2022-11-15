@@ -36,12 +36,6 @@ export default function Chat() {
                     user1DisplayName: user.displayName,
                     user2DisplayName: displayName
                 }, { merge: true } );
-            } else 
-            {
-                setDoc(chatRef, {
-                    user1Id: users[0],
-                    user2Id: users[1]
-                }, { merge: true } );
             }
         }
       }, []);
