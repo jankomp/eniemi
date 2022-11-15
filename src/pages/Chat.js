@@ -32,7 +32,7 @@ export default function Chat() {
                 const { id, displayName } = state;
                 setDoc(chatRef, {
                     user1Id: users[0],
-                    user2Id: id,
+                    user2Id: users[1],
                     user1DisplayName: user.displayName,
                     user2DisplayName: displayName
                 }, { merge: true } );
