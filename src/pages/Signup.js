@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfi
 import { db } from '../firebase.js';
 import { collection, addDoc } from "firebase/firestore";
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Auth";
 import { auth } from '../firebase';
@@ -67,7 +68,7 @@ function Signup() {
                     Registration
                     </div>
                 </div>
-                <form action="#" onSubmit={createUser}>
+                <form onSubmit={createUser}>
                     <div class="field_group">
                         <div class="labelgroup">
                             <label for="name" >Your name </label>
@@ -88,10 +89,14 @@ function Signup() {
                             <div class="labelgroup">
                                 <label for="password">Create your password </label>
                             </div>
-                            <input id="password" placeholder="Enter your password" class="input_bar" onChange={HandleInputChange}></input>
+                            <input id="password" placeholder="Enter your password" type = "password" class="input_bar" onChange={HandleInputChange}></input>
                     </div>
 
                     <button class="submit-button" type="submit" >Sign up</button>
+
+                    <div class="link-to-registration">
+                    <Link to={'/login'} class="link" >Already have an account? Log in.</Link>
+                    </div>
                     
                 </form>    
             </main>
