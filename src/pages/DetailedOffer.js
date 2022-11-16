@@ -85,7 +85,7 @@ export default function DetailedOffer() {
 function ImageDivForCarousel(imageUrl) {
   return (
     <div>
-      <img src={imageUrl} alt="item" className="center"/>
+      <img key={imageUrl} src={imageUrl} alt="item" className="center"/>
     </div>
   )
 }
