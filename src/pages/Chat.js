@@ -44,7 +44,7 @@ export default function Chat() {
 
     return (
         <>
-            <div className="messages-container">
+            <div className="message-list-container">
                 <h1 className="heading">Chat</h1>
                 <MessageList className="messageList" chatId={chatId}/>
                 <br/>
