@@ -10,10 +10,14 @@ export default function OfferListFilter({returnFilter}) {
         }
     );
 
-    /* const localClearFilter =(e) => {
-        setFilter([]);
+    const localClearFilter =(e) => {
+        e.preventDefault();
+        setFilter({
+            category: '',
+            maxPrice: 0
+        });
         returnFilter(e, filter);
-    } */
+    }
 
     function CategorySelected(newCategory) {
         setFilter({
@@ -23,6 +27,7 @@ export default function OfferListFilter({returnFilter}) {
     }
 
     const HandleInputChange = (e) => {
+        e.preventDefault();
         setFilter({
             ...filter,
             [e.target.name]: e.target.value
@@ -34,10 +39,10 @@ export default function OfferListFilter({returnFilter}) {
              <label>
             Category:
             </label>
-            <CategoryDropDown valueSelected={CategorySelected} />
+            <CategoryDropDown valueSelected={CategorySelected}/>
             <br />
             <label >
-                Maximum price:
+            Maximum price:
             </label>
             <input 
                 name="maxPrice"
@@ -46,7 +51,7 @@ export default function OfferListFilter({returnFilter}) {
                 onChange={HandleInputChange} />
             <input type="submit" value="Apply Filter"/>
         </form>
-        {/* <button onClick={localClearFilter}>Clear filter</button> */}
+        <button onClick={localClearFilter}>Clear filter</button>
         </>
     )
 }
