@@ -47,51 +47,36 @@ function Login() {
 
   return (   
     <>
-        <div>
-        <h1 className="pageTitle">E-Niemi</h1>
-        <form onSubmit={handleLogin}>
-            <label className="userFormLine">
-            Email
-            </label>
-            <br/>
-            <TextField variant="outlined" 
-             name="email"
-             type="email"
-             onChange={HandleInputChange}
-             placeholder="Please enter text"
-             />
-            <br/>
-            <br/>
+        <main>
+                <div class="title">
+                    E-niemi
+                    <div class="sub-title">
+                    Login
+                    </div>
+                </div>
+                <form onSubmit={handleLogin}>
+                    <div class="field_group">
+                            <div class="labelgroup">
+                                <label for="email">Your email</label>
+                            </div>
+                            <input name="email" id="email" placeholder="Enter your email" class="input_bar" onChange={HandleInputChange}></input>
 
-            <label className="userFormLine">
-            Password
-            </label>
-            <br/>
-            <TextField variant="outlined" 
-             name="password"
-             type="password"
-             onChange={HandleInputChange}
-             placeholder="Please enter text"/>
-            <br/>
+                    </div>
 
-            <br/><br/><br/>
+                    <div class="field_group">
+                            <div class="labelgroup">
+                                <label for="password">Create your password </label>
+                            </div>
+                            <input name="password" id="password" placeholder="Enter your password" class="input_bar" type = "password" onChange={HandleInputChange}></input>
+                    </div>
 
-            <Button variant="contained"
-            type="submit"
-            className="userFormLine"
-            sx={{ borderRadius: 40
-             }}
-            >Start!
-        
-            </Button>
-
-            <br/>
-
-            
-
-        </form>
-        </div>
-        <Link to={'/signup'} className="userFormLine">Not registered? signup!</Link>
+                    <button class="submit-button" type="submit" >Start!</button>
+                    
+                    <div class="link-to-registration">
+                    <Link to={'/signup'} class="link" >Don't have an account? Create a new one!</Link>
+                    </div>
+                </form>
+        </main>
     </>
   );
 };
