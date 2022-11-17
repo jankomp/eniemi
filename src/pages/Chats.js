@@ -5,6 +5,8 @@ import { collection , query, orderBy , onSnapshot, where, getDocs} from 'firebas
 import {React, useState, useEffect} from "react";
 import { async } from "@firebase/util";
 
+import "./styles_css/chats.css"
+
 export default function Chats() {
     const [chats, setChats] = useState([]);
 
@@ -21,19 +23,31 @@ export default function Chats() {
             const chats1Result = await getDocs(q1);
             const chats2Result = await getDocs(q2);
 
+            //get the chats where user1 is the same as the current users id
             const allChats = Array.from(chats1Result.docs.flatMap( doc => ({
                 id: doc.id,
                 data: doc.data()
                 })
             ));
             
+            //add the chats where user2 is the same as the current users id
             chats2Result.docs.flatMap(doc=>(allChats.push({
                 id: doc.id,
                 data: doc.data()
                 }))
             );
             
-            //TODO: Order Chats by timestamp
+            //order all chats by the time of its last message
+            allChats.sort((a, b) => {
+                if (a.data.lastMessageTime < b.data.lastMessageTime) {
+                    return 1;
+                }
+                if (a.data.lastMessageTime > b.data.lastMessageTime) {
+                    return -1;
+                }
+                return 0;
+            });
+
             setChats(allChats);
         }
         
@@ -56,7 +70,7 @@ export default function Chats() {
 
     function NotMyName(chat) {
         if (chat){
-            if (chat.user1Id === user.uid) {
+            if (chat.user1DisplayName === user.displayName) {
                 return chat.user2DisplayName;
             } else {
                 return chat.user1DisplayName;
@@ -76,7 +90,12 @@ export default function Chats() {
     
       function MapChatItem(chatItem)
       {
-        return <Link to={'/chat/' + NotMyId(chatItem.data)} key={chatItem.id} className="noLink"><li>{NotMyName(chatItem.data)}</li></Link>
+        return <Link to={'/chat/' + NotMyId(chatItem.data)} key={chatItem.id} className="noLink">
+            <div className="chatItem">
+            <li className="chatTitle">{NotMyName(chatItem.data)}</li>
+            <p className="messageContent">{chatItem.data.lastMessageText}</p>
+            </div>
+            </Link>
       }
 
 }
