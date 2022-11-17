@@ -1,0 +1,23 @@
+@font-face {
+    font-family: poppinsBlack;
+    src: url(../../res/Poppins/Poppins-Black.ttf);
+  }
+  
+  @font-face {
+    font-family: poppinsLight;
+    src: url(../../res/Poppins/Poppins-Light.ttf);
+  }
+
+.chatItem {
+    list-style-type: none;
+    border:1px solid #777;
+    border-radius: 2%;
+}
+
+.chatTitle {
+    font-family: poppinsBlack;
+}
+
+.messageContent {
+    font-family: poppinsLight;
+}

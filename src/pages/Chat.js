@@ -3,7 +3,7 @@ import { useParams, useLocation } from 'react-router-dom';
 import { useState, useEffect } from "react";
 
 import { db } from '../firebase.js';
-import { addDoc, setDoc, doc } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 
 import { MessageList } from "../components/MessageList.js";
 import { MessageInput } from "../components/MessageInput.js";

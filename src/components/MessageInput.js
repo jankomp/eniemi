@@ -1,5 +1,5 @@
 import React from 'react';
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { addDoc, doc, setDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase.js';
 import { getAuth } from "firebase/auth"
 
@@ -22,8 +22,15 @@ export default function MessageInput({ chatId }) {
                     text: value.trim(),
                     timestamp: serverTimestamp(),
                 }).then(() => {
-                    setValue('');
+                    const chatRef = doc(db, 'chats', chatId);
+                    setDoc(chatRef, {
+                        lastMessageTime: serverTimestamp(),
+                        lastMessageText: value.trim()
+                    }, { merge: true } ).then(() => {
+                        setValue('');
+                    });
                 });
+
             } catch (error) {
                 console.error(error);
             }

@@ -20,11 +20,6 @@ body {
   src: url(./res/Poppins/Poppins-Light.ttf);
 }
 
-@font-face {
-  font-family: poppinsLight;
-  src: url(./res/Poppins/Poppins-Light.ttf);
-}
-
 .center {
   display: block;
   margin-left: auto;
