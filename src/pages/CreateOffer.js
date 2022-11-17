@@ -1,5 +1,5 @@
 
-import React from "react";
+import React,{ useRef } from "react";
 import { db } from '../firebase.js';
 import { collection, addDoc, serverTimestamp} from 'firebase/firestore';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -14,6 +14,9 @@ export default CreateOfferComponent
 function CreateOfferComponent(props) {
     const auth = getAuth();
     const user = auth.currentUser;
+
+    const nameRef = useRef(null);
+    const imageRef = useRef(null);
 
     const [offer, setOffer] = useState(
         {
@@ -114,20 +117,36 @@ function CreateOfferComponent(props) {
     function SubmitForm(event) {
         event.preventDefault();
         //console.log(offer);
-        addDoc( collection(db, "offers"), {
-            category: offer.category,
-            name: offer.name,
-            desc: offer.desc,
-            price: Number(offer.price),
-            images: offer.images,
-            creator: user.displayName,
-            creatorId: user.uid,
-            timestamp: serverTimestamp()
-        } ).then((newOffer) => {
-            //console.log(newOffer);
-            navigate('/detailedOffer/' + newOffer.id);
-        });
+        if (validateForm()) {
+            addDoc( collection(db, "offers"), {
+                category: offer.category,
+                name: offer.name,
+                desc: offer.desc,
+                price: Number(offer.price),
+                images: offer.images,
+                creator: user.displayName,
+                creatorId: user.uid,
+                timestamp: serverTimestamp()
+            } ).then((newOffer) => {
+                //console.log(newOffer);
+                navigate('/detailedOffer/' + newOffer.id);
+            });
+        }
     }
+
+    function validateForm() {
+        let name = nameRef.current?.value;
+        if (name == "") {
+          alert("Name must be filled out");
+          return false;
+        }
+        let image = imageRef.current?.value;
+        if (image == "") {
+            alert("Upload at least one image");
+            return false;
+          }
+        return true;
+      }
 
     if (user) {
         return (
@@ -144,7 +163,8 @@ function CreateOfferComponent(props) {
                 name="name"
                 type="text"
                 value={offer.name}
-                onChange={HandleInputChange} />
+                onChange={HandleInputChange}
+                ref={nameRef} />
             <br />
             <label>
             Description:
@@ -173,7 +193,8 @@ function CreateOfferComponent(props) {
                 type="file"
                 accept="image/*"
                 multiple
-                onChange={HandleInputChange} />
+                onChange={HandleInputChange}
+                ref={imageRef} />
 
             <br />
             <input type="submit" value="Create Offer" onSubmit={SubmitForm}/>
