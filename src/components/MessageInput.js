@@ -3,6 +3,9 @@ import { addDoc, doc, setDoc, collection, serverTimestamp } from 'firebase/fires
 import { db } from '../firebase.js';
 import { getAuth } from "firebase/auth"
 
+// Add styles to the page
+import "./styles_css/messageInput.css"
+
 export default function MessageInput({ chatId }) {
     const auth = getAuth();
     const user = auth.currentUser;
@@ -39,15 +42,18 @@ export default function MessageInput({ chatId }) {
 
     return (
         <form onSubmit={handleSubmit} className="message-input-container">
-            <input
-                type="text"
-                placeholder="Enter a message"
-                value={value}
-                onChange={handleChange}
-                className="message-input"
-                required
-                minLength={1}
-            />
+            <div className="message-input-div">
+                <input
+                    type="text"
+                    placeholder="Enter a message"
+                    value={value}
+                    onChange={handleChange}
+                    className="message-input"
+                    required
+                    minLength={1}
+                />
+            </div>
+            
             <button type="submit" disabled={value < 1} className="send-message">
                 Send
             </button>

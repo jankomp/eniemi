@@ -44,8 +44,13 @@ export default function Chat() {
 
     return (
         <>
+            <div className="title-for-chat">
+                    E-niemi
+                    <div className="sub-title">
+                    Chat
+                    </div>
+                </div>
             <div className="message-list-container">
-                <h1 className="heading">Chat</h1>
                 <MessageList className="messageList" chatId={chatId}/>
                 <br/>
                 <MessageInput className="messageInput" chatId={chatId}/>
