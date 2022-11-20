@@ -48,32 +48,32 @@ function Login() {
   return (   
     <>
         <main>
-                <div class="title">
+                <div className="title">
                     E-niemi
-                    <div class="sub-title">
+                    <div className="sub-title">
                     Login
                     </div>
                 </div>
                 <form onSubmit={handleLogin}>
-                    <div class="field_group">
-                            <div class="labelgroup">
+                    <div className="field_group">
+                            <div className="labelgroup">
                                 <label for="email">Your email</label>
                             </div>
-                            <input name="email" id="email" placeholder="Enter your email" class="input_bar" onChange={HandleInputChange}></input>
+                            <input name="email" id="email" placeholder="Enter your email" className="input_bar" onChange={HandleInputChange}></input>
 
                     </div>
 
-                    <div class="field_group">
-                            <div class="labelgroup">
+                    <div className="field_group">
+                            <div className="labelgroup">
                                 <label for="password">Create your password </label>
                             </div>
-                            <input name="password" id="password" placeholder="Enter your password" class="input_bar" type = "password" onChange={HandleInputChange}></input>
+                            <input name="password" id="password" placeholder="Enter your password" className="input_bar" type = "password" onChange={HandleInputChange}></input>
                     </div>
 
-                    <button class="submit-button" type="submit" >Start!</button>
+                    <button className="submit-button" type="submit" >Login</button>
                     
-                    <div class="link-to-registration">
-                    <Link to={'/signup'} class="link" >Don't have an account? Create a new one!</Link>
+                    <div className="link-to-registration">
+                    <Link to={'/signup'} className="link" >Don't have an account? Create a new one!</Link>
                     </div>
                 </form>
         </main>
