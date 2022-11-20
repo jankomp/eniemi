@@ -1,5 +1,4 @@
 
-
 import { db } from '../firebase.js';
 import { doc, getDoc, deleteDoc} from 'firebase/firestore';
 import { getAuth } from "firebase/auth"
@@ -38,9 +37,18 @@ export default function DetailedOffer() {
         {images?.map(imageUrl => ImageDivForCarousel(imageUrl))}
       </Carousel>
       <h1 className="itemName">{offer.name}</h1>
-      <p className="itemInfoLine">{offer.desc}</p>
-      <h1 className="itemInfoLine">{offer.price} €</h1>
-      <p className="itemInfoLine">Seller: {offer.creator}</p>
+	  
+	  <div className="offerBox">
+		<div className="offer-price">
+			 <h1 className="">{offer.price} €</h1>	
+		</div>
+	  </div>
+	  <div className="Description">Description</div>
+		 <div><p className="itemInfoLine">{offer.desc}</p>
+     <br/>	
+			<p className="itemInfoLine">Seller: {offer.creator}</p></div>
+     
+      <br/>
       <DeleteBtn></DeleteBtn>
       <ContactBtn></ContactBtn>
       </>
