@@ -73,7 +73,7 @@ function Login() {
                     <button class="submit-button" type="submit" >Start!</button>
                     
                     <div class="link-to-registration">
-                    <Link to={'/signup'} class="link" >Don't have an account? Create a new one!</Link>
+                        <Link to={'/signup'} class="link" >Don't have an account? Create a new one!</Link>
                     </div>
                 </form>
         </main>
