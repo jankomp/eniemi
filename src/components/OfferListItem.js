@@ -11,12 +11,9 @@ const OfferListItem=({arr})=>{
         <ListItem className="listItem">
             <img src={imageurl} alt="Offer image" className="center"/>
             <div className="itemInfo">
-                <h2 className="itemName">{arr.data.name}</h2>
-                <br />
-                <p className="itemInfoLine">{arr.data.desc}</p>
-                <br />
-                <p className="itemInfoLine">{arr.data.price} €</p>
-                <br />
+                <h2 className="itemName">{arr.data.price} €</h2>
+                <p className="itemInfoLine">{arr.data.name}{arr.data.desc}</p>
+                
             </div>
         <ListItemAvatar />
         </ListItem>

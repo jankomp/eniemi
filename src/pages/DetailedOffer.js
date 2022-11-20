@@ -1,5 +1,5 @@
 
-
+ 
 import { db } from '../firebase.js';
 import { doc, getDoc, deleteDoc} from 'firebase/firestore';
 import { getAuth } from "firebase/auth"
@@ -7,7 +7,7 @@ import { React, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-
+ 
 export default function DetailedOffer() { 
   const [offer, setOffer] = useState([]);
   
@@ -38,9 +38,21 @@ export default function DetailedOffer() {
         {images?.map(imageUrl => ImageDivForCarousel(imageUrl))}
       </Carousel>
       <h1 className="itemName">{offer.name}</h1>
-      <p className="itemInfoLine">{offer.desc}</p>
-      <h1 className="itemInfoLine">{offer.price} €</h1>
-      <p className="itemInfoLine">Seller: {offer.creator}</p>
+	  
+	  <div className="offerBox">
+		<div className="offer-left">
+			<div>Jmerantaival 1, Espoo</div>
+			<div>20 Aug - 28 Aug</div>
+			<div>Queued by 6 people</div>
+		</div>
+		<div className="offer-price">
+			 <h1 className="">{offer.price} €</h1>	
+		</div>
+	  </div>
+	  <div className="Discription">Discription</div>
+		 <div><p className="itemInfoLine">{offer.desc}</p>	
+			  <p className="itemInfoLine">Seller: {offer.creator}</p></div>
+     
       <DeleteBtn></DeleteBtn>
       <ContactBtn></ContactBtn>
       </>

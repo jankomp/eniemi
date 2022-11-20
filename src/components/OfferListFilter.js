@@ -36,7 +36,17 @@ export default function OfferListFilter({returnFilter}) {
 
     return (<>
         <form onSubmit={event => returnFilter(event, filter)}>
-             <label>
+            <div className="index-inputbox">
+                <div className="index-in-left">
+                    <img src="http://celiang.oss-cn-hangzhou.aliyuncs.com/measurement/2022-11/20/78ZBZphpHfMTnS1668876808221120.png" />
+                </div>
+                <div className="index-in-right">
+                <CategoryDropDown valueSelected={CategorySelected}/>
+                </div>
+            
+            </div>
+             
+             {/* <label>
             Category:
             </label>
             <CategoryDropDown valueSelected={CategorySelected}/>
@@ -49,9 +59,9 @@ export default function OfferListFilter({returnFilter}) {
                 type="number"
                 value={filter.maxPrice}
                 onChange={HandleInputChange} />
-            <input type="submit" value="Apply Filter"/>
+            <input type="submit" value="Apply Filter"/> */}
         </form>
-        <button onClick={localClearFilter}>Clear filter</button>
+        {/* <button onClick={localClearFilter}>Clear filter</button> */}
         </>
     )
 }

@@ -24,6 +24,7 @@ export default function CategoryDropDown({valueSelected}) {
             name="category"
             options={categories}
             required={true}
+            placeholder="Category"
             dropdownPosition="bottom"
             onChange={valueSelected}
         >
