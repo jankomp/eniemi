@@ -131,13 +131,13 @@ body {
 .itemInfoLine {
   font-family: poppinsLight;
   text-align:left;
-  font-size: .24rem;
+  font-size: 20%;
   color:#444;
 }
-.Discription{
+.Description{
 	font-family: poppinsLight;
 	text-align:left;
-	font-size:14px;
+	font-size:20%;
 	font-weight:600;
 	padding:10px 0px;
 }
@@ -296,6 +296,13 @@ body {
   border-bottom: 1px solid #ccc !important;
   padding: 20px 5px !important;padding-bottom: 5px !important;outline: none;
  }
+
+ .create-offer-image {
+  display: inline;
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 40%;
+  }
 
 
 

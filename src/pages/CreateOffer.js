@@ -160,7 +160,7 @@ function CreateOfferComponent(props) {
             <div className="uploadImgBox">
                 {
                     offer.images.forEach(imageUrl => {
-                        uploadedImages.push(<img key={imageUrl} src={imageUrl} alt="item" className="center" />);
+                        uploadedImages.push(<img key={imageUrl} src={imageUrl} alt="item" className="create-offer-image" />);
                     })
                 }
                 {uploadedImages}

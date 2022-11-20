@@ -40,19 +40,16 @@ export default function DetailedOffer() {
       <h1 className="itemName">{offer.name}</h1>
 	  
 	  <div className="offerBox">
-		{/* <div className="offer-left">
-			<div>Jmerantaival 1, Espoo</div>
-			<div>20 Aug - 28 Aug</div>
-			<div>Queued by 6 people</div>
-		</div> */}
 		<div className="offer-price">
 			 <h1 className="">{offer.price} €</h1>	
 		</div>
 	  </div>
-	  <div className="Discription">Description</div>
-		 <div><p className="itemInfoLine">{offer.desc}</p>	
-			  <p className="itemInfoLine">Seller: {offer.creator}</p></div>
+	  <div className="Description">Description</div>
+		 <div><p className="itemInfoLine">{offer.desc}</p>
+     <br/>	
+			<p className="itemInfoLine">Seller: {offer.creator}</p></div>
      
+      <br/>
       <DeleteBtn></DeleteBtn>
       <ContactBtn></ContactBtn>
       </>
