@@ -212,42 +212,7 @@ function CreateOfferComponent(props) {
             
             
             <br />
-            <div>
-                <input 
-                    name="name"
-                    className="textInput"
-                    type="text"
-                    value={offer.name}
-                    placeholder="Location"
-                    onChange={HandleInputChange}
-                    ref={nameRef} />
 
-            </div>
-            <br />
-
-            <div className="uploadImgBox uploadImgBox1">
-                <input 
-                    name="name"
-                    className="textInput1"
-                    type="text"
-                    value={offer.name}
-                    placeholder="Brand"
-                    onChange={HandleInputChange}
-                    ref={nameRef} />
-
-                    <CategoryDropDown  valueSelected={CategorySelected} />
-
-                     {/* <input 
-                    name="name"
-                    className="textInput1"
-                    type="text"
-                    value={offer.name}
-                    placeholder="Condition"
-                    onChange={HandleInputChange}
-                    ref={nameRef} /> */}
-
-
-            </div>
             <br />
 
             <input type="submit" className="submitCreate" value="Post" onSubmit={SubmitForm}/>

@@ -41,9 +41,7 @@ export default function DetailedOffer() {
 	  
 	  <div className="offerBox">
 		<div className="offer-left">
-			<div>Jmerantaival 1, Espoo</div>
-			<div>20 Aug - 28 Aug</div>
-			<div>Queued by 6 people</div>
+
 		</div>
 		<div className="offer-price">
 			 <h1 className="">{offer.price} €</h1>	
