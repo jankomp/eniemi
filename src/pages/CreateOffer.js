@@ -17,6 +17,8 @@ function CreateOfferComponent(props) {
 
     const nameRef = useRef(null);
     const imageRef = useRef(null);
+    
+    const uploadedImages = [];
 
     const [offer, setOffer] = useState(
         {
@@ -156,16 +158,12 @@ function CreateOfferComponent(props) {
         return (
         <form onSubmit={SubmitForm}>
             <div className="uploadImgBox">
-                <div className="image-upload">
-                    <span>+</span>
-                    <input
-                        className="image-input"
-                        type="file"
-                        accept="image"
-                        multiple
-                        onChange={HandleInputChange}
-                        ref={imageRef} />
-                </div>
+                {
+                    offer.images.forEach(imageUrl => {
+                        uploadedImages.push(<img key={imageUrl} src={imageUrl} alt="item" className="center" />);
+                    })
+                }
+                {uploadedImages}
                 <div className="image-upload">
                     <span>+</span>
                     <input
@@ -188,7 +186,7 @@ function CreateOfferComponent(props) {
                     ref={nameRef} />
 
             </div>
-            <div className="uploadImgBox uploadImgBox1">
+            <div>
                 <input
                     name="price"
                     type="number"
@@ -210,46 +208,8 @@ function CreateOfferComponent(props) {
                 value={offer.desc}
                 onChange={HandleInputChange} />
             
+            <br />
             
-            <br />
-            <div>
-                <input 
-                    name="name"
-                    className="textInput"
-                    type="text"
-                    value={offer.name}
-                    placeholder="Location"
-                    onChange={HandleInputChange}
-                    ref={nameRef} />
-
-            </div>
-            <br />
-
-            <div className="uploadImgBox uploadImgBox1">
-                <input 
-                    name="name"
-                    className="textInput1"
-                    type="text"
-                    value={offer.name}
-                    placeholder="Brand"
-                    onChange={HandleInputChange}
-                    ref={nameRef} />
-
-                    <CategoryDropDown  valueSelected={CategorySelected} />
-
-                     {/* <input 
-                    name="name"
-                    className="textInput1"
-                    type="text"
-                    value={offer.name}
-                    placeholder="Condition"
-                    onChange={HandleInputChange}
-                    ref={nameRef} /> */}
-
-
-            </div>
-            <br />
-
             <input type="submit" className="submitCreate" value="Post" onSubmit={SubmitForm}/>
         </form>
         );
