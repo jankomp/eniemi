@@ -22,13 +22,14 @@
     border-radius: 20px;
     text-align: left;
     font-family: poppinsLight;
- 
-    background-color: #393939;
-    color: #f1f2f8;
+    background: #eeeeeead;
+    color: #393939;
     overflow: hidden;
   }
   
 .own-message {
+    background-color: #393939;
+    color: #f1f2f8;
     align-self: flex-end;
   }
 .text {
