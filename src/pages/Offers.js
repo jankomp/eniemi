@@ -9,7 +9,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { ContentCutOutlined } from "@mui/icons-material";
 
 const offersRef = collection(db,"offers");
-const itemsPerPage = 25;
+const itemsPerPage = 8;
 let localFilter;
 let q=query(offersRef,orderBy("timestamp","desc"), limit(itemsPerPage));
 let offerSnapshot;
@@ -78,7 +78,6 @@ export default function Offers() {
 
   return (
     <>
-    <h1>Offers</h1>
     <OfferListFilter returnFilter={returnFilter}></OfferListFilter>
     <div>
       <InfiniteScroll
@@ -92,8 +91,10 @@ export default function Offers() {
           </p>
       }
       >
+        <div className="listBox">
         {offers.map(item=>
-          MapItem(item))}
+        MapItem(item))}
+        </div>
       </InfiniteScroll>
     </div>
     </>
