@@ -8,38 +8,38 @@ export default function Navbar() {
 
   if (currentUser) {
     return (
-      <nav class="navbar">
-        <div class="menu-container">
-          <div class="offers menu-item">
+      <nav className="navbar">
+        <div className="menu-container">
+          <div className="offers menu-item">
             <CustomLink to="/offers" className="navBarLink">Offers</CustomLink>
           </div>
-          <div class="create-offer menu-item">
-            <CustomLink to="/createOffer" class="navBarLink">Create Offer</CustomLink>
+          <div className="create-offer menu-item">
+            <CustomLink to="/createOffer" className="navBarLink">Create Offer</CustomLink>
           </div>
-          <div class="chats menu-item">
-            <CustomLink to="/chats" class="navBarLink">Chats</CustomLink>
+          <div className="chats menu-item">
+            <CustomLink to="/chats" className="navBarLink">Chats</CustomLink>
           </div>
-          <div class="profile menu-item">
-            <CustomLink to="/profile" class="navBarLink">Profile</CustomLink>
+          <div className="profile menu-item">
+            <CustomLink to="/profile" className="navBarLink">Profile</CustomLink>
           </div>
-          <div class="logout menu-item">
-            <CustomLink to="/logout" class="navBarLink">Logout</CustomLink>
+          <div className="logout menu-item">
+            <CustomLink to="/logout" className="navBarLink">Logout</CustomLink>
           </div>
         </div>
       </nav>
     );
   } else {
     return (
-      <nav class="navbar">
+      <nav className="navbar">
         {/* <Link to="/" className="site-title">
           E-niemi
         </Link> */}
-        <div class="menu-container">
-          <div class="offers menu-item">
-              <CustomLink to="/offers" class="navBarLink">Offers</CustomLink>
+        <div className="menu-container">
+          <div className="offers menu-item">
+              <CustomLink to="/offers" className="navBarLink">Offers</CustomLink>
           </div>
-          <div class="login menu-item">
-            <CustomLink to="login" class="navBarLink">Login</CustomLink>
+          <div className="login menu-item">
+            <CustomLink to="login" className="navBarLink">Login</CustomLink>
           </div>
         </div>
       </nav>
@@ -52,7 +52,7 @@ function CustomLink({ to, children, ...props }) {
   const isActive = useMatch({ path: resolvedPath.pathname, end: true })
 
   return (
-    <div class={isActive ? "active" : ""}>
+    <div className={isActive ? "active" : ""}>
       <Link to={to} {...props}>
         {children}
       </Link>
