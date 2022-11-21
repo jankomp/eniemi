@@ -6,7 +6,6 @@ import {React, useState, useEffect} from "react";
 import OfferListItem from '../components/OfferListItem'
 import OfferListFilter from "../components/OfferListFilter.js";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { ContentCutOutlined } from "@mui/icons-material";
 
 const offersRef = collection(db,"offers");
 const itemsPerPage = 8;
@@ -18,6 +17,7 @@ export default function Offers() {
   const [offers, setOffers] = useState([]);
 
   useEffect(() => {
+    console.log("useEffect");
     q=query(offersRef,orderBy("timestamp","desc"), limit(itemsPerPage));
     getOffers();
   }, []);
@@ -27,23 +27,21 @@ export default function Offers() {
     console.log(filter);
     localFilter = filter;
     
-    setOffers([]);
-    console.log(filter.maxPrice && filter.category);
-    if (!filter.maxPrice && !filter.category) {
-      q=query(offersRef,orderBy("timestamp","desc"), limit(itemsPerPage));
-    } else {
-      q=query(offersRef, where("price", "<=", Number(filter.maxPrice)),orderBy("price", "asc"), where("category","==",filter.category), limit(itemsPerPage));
-      
-      if (filter.maxPrice) {
-        q=query(offersRef, where("price", "<=", Number(filter.maxPrice)),orderBy("price", "asc"), limit(itemsPerPage));
-      }
-      if (filter.category) {
-        q=query(offersRef, where("category","==",filter.category), limit(itemsPerPage));
-      }
-    }
+    clearOffers();
+    console.log("returnFilter");
+    console.log("clearOffers");
+    //TODO: why is array not cleared?
+
+    q = ReturnQuery(filter);
 
     getOffers();
   };
+
+  const clearOffers = () => {
+    setOffers([]);
+    console.log("clearOffers");
+    console.log(offers);
+  }
 
   async function getOffers() {
     offerSnapshot = await getDocs(q);
@@ -57,23 +55,43 @@ export default function Offers() {
   const GetMoreOffers = async () => {
     //e.preventDefault();
     const lastOffer = offerSnapshot.docs[offerSnapshot.docs.length - 1];
-
-    if (!localFilter || (!localFilter.maxPrice && !localFilter.category)) {
-        q=query(offersRef,orderBy("timestamp","desc"), startAfter(lastOffer), limit(itemsPerPage));
-    } else {
-      q=query(offersRef, where("price", "<=", Number(localFilter.maxPrice)),orderBy("price", "asc"), where("category","==",localFilter.category), startAfter(lastOffer), limit(itemsPerPage));
-      
-      if (localFilter.maxPrice) {
+    if (lastOffer) {
+      if (!localFilter || (!localFilter.maxPrice && !localFilter.category)) {
+          q=query(offersRef,orderBy("timestamp","desc"), startAfter(lastOffer), limit(itemsPerPage));
+      }
+      if (localFilter.maxPrice && localFilter.category) {
+        q=query(offersRef, where("price", "<=", Number(localFilter.maxPrice)),orderBy("price", "asc"), where("category","==",localFilter.category), startAfter(lastOffer), limit(itemsPerPage));
+      }
+      if (localFilter.maxPrice && !localFilter.category) {
         q=query(offersRef, where("price", "<=", Number(localFilter.maxPrice)),orderBy("price", "asc"), startAfter(lastOffer), limit(itemsPerPage));
       }
-      if (localFilter.category) {
+      if (localFilter.category && !localFilter.maxPrice) {
         q=query(offersRef, where("category","==",localFilter.category), startAfter(lastOffer), limit(itemsPerPage));
       }
+    } else {
+      q = ReturnQuery(localFilter);
     }
     
     console.log(q);
 
     getOffers();
+  }
+
+  function ReturnQuery(filter) {
+    let localQuery;
+    if (!filter.maxPrice && !filter.category) {
+      localQuery=query(offersRef,orderBy("timestamp","desc"), limit(itemsPerPage));
+    } 
+    if (filter.maxPrice && filter.category) {
+      localQuery=query(offersRef, where("price", "<=", Number(filter.maxPrice)),orderBy("price", "asc"), where("category","==",filter.category), limit(itemsPerPage));
+    }  
+    if (filter.maxPrice && !filter.category) {
+      localQuery=query(offersRef, where("price", "<=", Number(filter.maxPrice)),orderBy("price", "asc"), limit(itemsPerPage));
+    }
+    if (filter.category && !filter.maxPrice) {
+      localQuery=query(offersRef, where("category","==",filter.category), limit(itemsPerPage));
+    }
+    return localQuery;
   }
 
   return (
