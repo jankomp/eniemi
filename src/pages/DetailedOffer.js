@@ -6,6 +6,10 @@ import { React, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import DeleteIcon from '@mui/icons-material/Delete';
+import MessageIcon from '@mui/icons-material/Message';
+
+import "./styles_css/detailed_offer.css"
 
 export default function DetailedOffer() { 
   const [offer, setOffer] = useState([]);
@@ -33,26 +37,30 @@ export default function DetailedOffer() {
       images = Array.from(offer.images);
     }
     return (<>
-      <Carousel>
-        {images?.map(imageUrl => ImageDivForCarousel(imageUrl))}
-      </Carousel>
-      <h1 className="itemName">{offer.name}</h1>
-	  
-	  <div className="offerBox">
-		<div className="offer-price">
-			 <h1 className="">{offer.price} €</h1>	
-		</div>
-	  </div>
-	  <div className="Description">Description</div>
-		 <div><p className="itemInfoLine">{offer.desc}</p>
-     <br/>	
-			<p className="itemInfoLine">Seller: {offer.creator}</p></div>
-     
-      <br/>
-      <DeleteBtn></DeleteBtn>
-      <ContactBtn></ContactBtn>
-      </>
-      )
+      <div className="detailedOffer">
+        <Carousel>
+          {images?.map(imageUrl => ImageDivForCarousel(imageUrl))}
+        </Carousel>
+        <h1 className="itemName">{offer.name}</h1>
+        
+        <div className="offerBox">
+        <div className="offer-price">
+          <h1 className="">{offer.price} €</h1>	
+        </div>
+        </div>
+        <div className="Description">Description</div>
+        <div><p className="itemInfoLine">{offer.desc}</p>
+        <br/>	
+        <br/>	
+        <p className="itemInfoLine">Seller: {offer.creator}</p></div>
+      
+        <br/>
+        <DeleteBtn/>
+        <ContactBtn/>
+        <br/>
+      </div>
+    </>
+    )
   }
 
   function DeleteBtn() {
@@ -68,7 +76,7 @@ export default function DetailedOffer() {
 
     if(user) {
       if (user.uid === offer.creatorId) {
-        return (<button onClick={deleteEvent}>Delete</button>)
+        return (<DeleteIcon fontSize="large" onClick={deleteEvent}/>)
       }
     }
   }
@@ -83,7 +91,7 @@ export default function DetailedOffer() {
     
     if(user) {
       if (user.uid !== offer.creatorId) {
-        return (<button onClick={contactEvent}>Contact</button>)
+        return (<MessageIcon fontSize="large" style={{ color: '#3477eb'}} onClick={contactEvent}/>)
       }
     }
   }

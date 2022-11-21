@@ -1,0 +1,38 @@
+.detailedOffer{
+    margin-top: 0%;
+    margin-bottom: 20%;
+}
+
+.offer-price{
+    font-size:75%;
+    font-family: poppinsBlack;
+}
+
+.itemInfoLine {
+    font-family: poppinsLight;
+    text-align:left;
+    font-size: 80%;
+    color:#444;
+}
+.Description{
+    font-family: poppinsLight;
+    text-align:left;
+    font-size:100%;
+    font-weight:600;
+    padding:10px 0px;
+}
+
+.itemInfo {
+    margin-left: 6%;
+}
+
+.offerBox{
+    /* border:1px solid red; */
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1rem 0;
+}
+
+
+.offerBox .offer-left{text-align:left;max-width:80%;font-size:.24rem;color:#666;}

@@ -187,6 +187,7 @@ function CreateOfferComponent(props) {
 
             </div>
             <div>
+                <label>€ </label>
                 <input
                     name="price"
                     type="number"
