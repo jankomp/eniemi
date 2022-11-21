@@ -35,31 +35,30 @@ export default function OfferListFilter({returnFilter}) {
     }
 
     return (<>
-                <form onSubmit={event => returnFilter(event, filter)}>
-                    <div className="index-inputbox">
-                        {/*<div className="index-in-left">
+        <form onSubmit={event => returnFilter(event, filter)}>
+        <div className="index-inputbox">
+         {/*<div className="index-in-left">
                             <img src="http://celiang.oss-cn-hangzhou.aliyuncs.com/measurement/2022-11/20/78ZBZphpHfMTnS1668876808221120.png" />
                         </div>*/}
-                        <div className="index-in-right">
-                        
-                        <CategoryDropDown valueSelected={CategorySelected}/>
-                        </div>
-                    </div>
-                     
-                    <label>
-                    Maximum price:
-                    </label>
-                    <input 
-                        name="maxPrice"
-                        className="maxPrice"
-                        type="number"
-                        value={filter.maxPrice}
-                        onChange={HandleInputChange} />
-                    <br/>
-                    <div className="clearFilter" onClick={localClearFilter}>Clear filter</div>
-                    <input className="applyFilter" type="submit" value="Apply Filter"/> 
-                </form>
-                
-                </>
-            )
-        }s
+         <div className="index-in-right">
+         
+         <CategoryDropDown valueSelected={CategorySelected}/>
+         </div>
+        </div>
+        <label>
+        Maximum price:
+        </label>
+        <input 
+         name="maxPrice"
+         className="maxPrice"
+         type="number"
+         value={filter.maxPrice}
+         onChange={HandleInputChange} />
+         <br/>
+         <div className="clearFilter" onClick={localClearFilter}>Clear filter</div>
+         <input className="applyFilter" type="submit" value="Apply Filter"/> 
+         </form>
+         
+        </>
+         )
+        }
