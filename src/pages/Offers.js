@@ -78,21 +78,10 @@ export default function Offers() {
 
   return (
     <>
+    <h1>Offers</h1>
     <OfferListFilter returnFilter={returnFilter}></OfferListFilter>
     <div>
-      <InfiniteScroll
-        dataLength={offers.length} 
-        next={GetMoreOffers}
-        hasMore={true}
-        loader={<h4>Loading...</h4>}
-        endMessage={
-          <p style={{ textAlign: 'center' }}>
-            <b>You have seen all the offers</b>
-          </p>
-      }
-      >
-        <div className="listBox">
-        {offers.map(item=>
+      {offers.map(item=>
         MapItem(item))}
         </div>
       </InfiniteScroll>
@@ -102,7 +91,7 @@ export default function Offers() {
 
   function MapItem(item)
   {
-    return <Link to={'/DetailedOffer/' + item.id} key={item.id} className="noLink"><OfferListItem  key={item.id} arr={item} /></Link>
+    return<Link to={'/DetailedOffer/' + item.id} key={item.id} className="noLink"><OfferListItem  key={item.id} arr={item} /></Link>
   }
 }
 

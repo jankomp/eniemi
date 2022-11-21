@@ -3,11 +3,12 @@
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
+  box-sizing:border-box;
   
 }
 
 body {
-  background-color: #fff;
+  background-color: #f1f2f8
 }
 
 @font-face {
@@ -26,13 +27,13 @@ body {
   margin-right: auto;
   width: 50%;
   max-width: 150pt;
+  
 }
 
+
 .container {
-  width: 90%;
-  margin: auto;
+  margin: 1rem;
   text-align: center;
-  min-width: 360px;
 }
 
 .navbar {
@@ -79,64 +80,20 @@ body {
 }
 
 .listItem {
-  /* border:1px solid #777; */
+  border:1px solid #777;
   border-radius: 2%;
-  display: inherit !important;
-  box-sizing:border-box;
-   padding:0px 10px !important;
-  
-}
-.listBox{
-	display: flex;
-	 flex-wrap: wrap;
 }
 
 .noLink {
   text-decoration: none;
   color: #484543;
-  /* display: flex; */
-  width: 50%;
-  /* border: 1px solid red; */
-  padding:0 !important;
 }
-.center {
-	/* border:1px solid red; */
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
- /* width: 50%;
-  max-width: 150pt; */
-  
-}
+
 .itemName {
   font-family: poppinsBlack;
-  font-size: 16px;
 }
-.offerBox{
-	/* border:1px solid red; */
-	display:flex;
-	justify-content:space-between;
-	align-items:center;
-	padding:1rem 0;
-}
-.offer-price{
-	font-size:.8rem;
-}
-.offerBox .offer-left{text-align:left;max-width:80%;font-size:.24rem;color:#666;}
-
 .itemInfoLine {
   font-family: poppinsLight;
-  text-align:left;
-  font-size: 20%;
-  color:#444;
-}
-.Description{
-	font-family: poppinsLight;
-	text-align:left;
-	font-size:20%;
-	font-weight:600;
-	padding:10px 0px;
 }
 
 .itemInfo {
@@ -168,14 +125,15 @@ body {
   margin-bottom: 20px;
 }
 
-.index-in-left{
-  width: 45px;
-  text-align: center;
-}
-
-.index-in-left img{
-  width: 20px;
-  height: 20px;
+.message {
+  max-width: 70%;
+  padding: 8px 16px;
+  margin-bottom: 8px;
+  background: #EEEEEE;
+  border-radius: 20px;
+  text-align: left;
+  -webkit-text-fill-color: #393939;
+  
 }
 
 .index-in-right{
@@ -187,34 +145,29 @@ body {
   flex-wrap: wrap;
 }
 
-.image-upload{
-  margin-right: 10px; 
-  width: 80px;
-  height: 80px;
-  position: relative;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  line-height: 80px;
-  text-align: center;}
-
-
-.image-upload span{font-size: 30px;color: #888;}
-.image-input{
-  opacity: 0; width: 70px; height: 70px;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);
+.message-input{
+  position: fixed;
+  display: flex;
+  bottom: 10%;
+  width: 80%;
+  flex:2;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 40px;
 }
-.textInput,.textInput1{border: none; border-bottom:1px solid #ccc ;padding: 20px 5px;padding-bottom: 5px; width: 100%;outline: none;}
-.textInput1{width: 48%;}
-.textInput-textarea{outline: none;width: 100%;border: 1px solid #ccc;height: 250px;margin-top: 12px; padding: 5px;border-radius: 10px;}
-.submitCreate{margin-top: 20px;  font-size: 16px; color: #fff; width: 100%;height: 45px;border-radius: 40px;background-color: rgba(0, 0, 0, 0.6);text-align: center;line-height: 45px;}
-.uploadImgBox1 {justify-content: space-between;}
-.uploadImgBox1>div{width: 50%;}
-.uploadImgBox  .css-wmy1p7-ReactDropdownSelect{
-/* border-radius: 10px !important; */
-width: 100% !important;
-border: none !important;
-border-radius: 0 !important;
-border-bottom: 1px solid #ccc !important;
-padding: 20px 5px !important;padding-bottom: 5px !important;outline: none;
+
+.send-message{
+  position: fixed;
+  display: flex;
+  bottom: 10%;
+  right: 2%;
+  width: 10%;
+  height: inherit;
+  box-sizing: border-box;
+  border-radius: 40px;
+  color: rgb(255, 255, 255);
+  background-color: aqua;
 }
 
 .create-offer-image {
@@ -223,3 +176,74 @@ margin-left: 2%;
 margin-right: 2%;
 width: 40%;
 }
+
+
+
+
+  .css-wmy1p7-ReactDropdownSelect{
+   border-radius: 10px !important;
+  }
+
+
+  .css-1yc4zyy-DropdownHandleComponent svg{
+    color: #ccc;
+  }
+
+  .index-inputbox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .index-in-left{
+    width: 45px;
+    text-align: center;
+  }
+
+  .index-in-left img{
+    width: 20px;
+    height: 20px;
+  }
+
+  .index-in-right{
+    width: calc(100% - 45px);
+  }
+
+  .uploadImgBox{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .image-upload{
+    margin-right: 10px; 
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    line-height: 80px;
+    text-align: center;}
+
+
+  .image-upload span{font-size: 30px;color: #888;}
+  .image-input{
+    opacity: 0; width: 70px; height: 70px;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);
+  }
+  .textInput,.textInput1{border: none; border-bottom:1px solid #ccc ;padding: 20px 5px;padding-bottom: 5px; width: 100%;outline: none;}
+  .textInput1{width: 48%;}
+  .textInput-textarea{outline: none;width: 100%;border: 1px solid #ccc;height: 250px;margin-top: 12px; padding: 5px;border-radius: 10px;}
+.submitCreate{margin-top: 20px;  font-size: 16px; color: #fff; width: 100%;height: 45px;border-radius: 40px;background-color: rgba(0, 0, 0, 0.6);text-align: center;line-height: 45px;}
+.uploadImgBox1 {justify-content: space-between;}
+.uploadImgBox1>div{width: 50%;}
+.uploadImgBox  .css-wmy1p7-ReactDropdownSelect{
+  /* border-radius: 10px !important; */
+  width: 100% !important;
+  border: none !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid #ccc !important;
+  padding: 20px 5px !important;padding-bottom: 5px !important;outline: none;
+ }
+
+
+

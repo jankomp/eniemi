@@ -1,5 +1,5 @@
 
-import React,{ useRef, Component } from "react";
+import React,{ useRef } from "react";
 import { db } from '../firebase.js';
 import { collection, addDoc, serverTimestamp} from 'firebase/firestore';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -116,8 +116,6 @@ function CreateOfferComponent(props) {
         }
     }
 
-
-    
     function SubmitForm(event) {
         event.preventDefault();
         //console.log(offer);
@@ -152,65 +150,56 @@ function CreateOfferComponent(props) {
         return true;
       }
 
-      
-
     if (user) {
         return (
         <form onSubmit={SubmitForm}>
-            <div className="uploadImgBox">
-                {
-                    offer.images.forEach(imageUrl => {
-                        uploadedImages.push(<img key={imageUrl} src={imageUrl} alt="item" className="create-offer-image" />);
-                    })
-                }
-                {uploadedImages}
-                <div className="image-upload">
-                    <span>+</span>
-                    <input
-                        className="image-input"
-                        type="file"
-                        accept="image"
-                        multiple
-                        onChange={HandleInputChange}
-                        ref={imageRef} />
-                </div>
-            </div>
-            <div>
-                <input 
-                    name="name"
-                    className="textInput"
-                    type="text"
-                    value={offer.name}
-                    placeholder="Title"
-                    onChange={HandleInputChange}
-                    ref={nameRef} />
-
-            </div>
-            <div>
-                <input
-                    name="price"
-                    type="number"
-                    className="textInput1"
-                    placeholder="Price €"
-                    value={offer.price}
-                    onChange={HandleInputChange} />
-
-                <CategoryDropDown  valueSelected={CategorySelected} />
-            </div>
+            <label>
+            Category:
+            </label>
+            <CategoryDropDown valueSelected={CategorySelected} />
             <br />
-            
-           
+            <label>
+            Name:
+            </label>
+            <input
+                name="name"
+                type="text"
+                value={offer.name}
+                onChange={HandleInputChange}
+                ref={nameRef} />
+            <br />
+            <label>
+            Description:
+            </label>
             <textarea
                 name="desc"
-                type="textarea"
-                className="textInput-textarea"
-                placeholder="Description"
+                type="text"
                 value={offer.desc}
                 onChange={HandleInputChange} />
-            
             <br />
-            
-            <input type="submit" className="submitCreate" value="Post" onSubmit={SubmitForm}/>
+            <label>
+            Price:
+            <input
+                name="price"
+                type="number"
+                value={offer.price}
+                onChange={HandleInputChange} />
+                €
+            </label>
+            <br />
+            <label>
+            Images:
+            </label>
+            <input
+                name="images"
+                type="file"
+                accept="image/*"
+                multiple
+                onChange={HandleInputChange}
+                ref={imageRef} />
+
+            <br />
+            <input type="submit" value="Create Offer" onSubmit={SubmitForm}/>
         </form>
         );
     } else {
