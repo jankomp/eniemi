@@ -20,7 +20,7 @@ export default function Navbar() {
             <CustomLink to="/chats" className="navBarLink">Chats</CustomLink>
           </div>
           <div className="profile menu-item">
-            <CustomLink to="/profile" className="navBarLink">Profile</CustomLink>
+            <CustomLink to="/profile" className="navBarLink">My items</CustomLink>
           </div>
           <div className="logout menu-item">
             <CustomLink to="/logout" className="navBarLink">Logout</CustomLink>
