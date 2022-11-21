@@ -177,27 +177,42 @@ function CreateOfferComponent(props) {
                 value={offer.desc}
                 onChange={HandleInputChange} />
             <br />
-            <label>
-            Price:
-            <input
-                name="price"
-                type="number"
-                value={offer.price}
-                onChange={HandleInputChange} />
-                €
-            </label>
-            <br />
-            <label>
-            Images:
-            </label>
-            <input
-                name="images"
-                type="file"
-                accept="image/*"
-                multiple
-                onChange={HandleInputChange}
-                ref={imageRef} />
+            <div>
+                <input 
+                    name="name"
+                    className="textInput"
+                    type="text"
+                    value={offer.name}
+                    placeholder="Location"
+                    onChange={HandleInputChange}
+                    ref={nameRef} />
 
+            </div>
+            <br />
+
+            <div className="uploadImgBox uploadImgBox1">
+                <input 
+                    name="name"
+                    className="textInput1"
+                    type="text"
+                    value={offer.name}
+                    placeholder="Brand"
+                    onChange={HandleInputChange}
+                    ref={nameRef} />
+
+                    <CategoryDropDown  valueSelected={CategorySelected} />
+
+                     {/* <input 
+                    name="name"
+                    className="textInput1"
+                    type="text"
+                    value={offer.name}
+                    placeholder="Condition"
+                    onChange={HandleInputChange}
+                    ref={nameRef} /> */}
+
+
+            </div>
             <br />
             <input type="submit" value="Create Offer" onSubmit={SubmitForm}/>
         </form>
