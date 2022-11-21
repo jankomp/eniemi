@@ -27,21 +27,14 @@ export default function Offers() {
     console.log(filter);
     localFilter = filter;
     
-    clearOffers();
-    console.log("returnFilter");
-    console.log("clearOffers");
-    //TODO: why is array not cleared?
-
     q = ReturnQuery(filter);
+
+    setOffers([]);
+    console.log(offers);
+    //TODO: why is array not cleared?
 
     getOffers();
   };
-
-  const clearOffers = () => {
-    setOffers([]);
-    console.log("clearOffers");
-    console.log(offers);
-  }
 
   async function getOffers() {
     offerSnapshot = await getDocs(q);
@@ -50,7 +43,6 @@ export default function Offers() {
       data: doc.data()
     }))));
   }
-
 
   const GetMoreOffers = async () => {
     //e.preventDefault();
