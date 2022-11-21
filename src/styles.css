@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #f1f2f8
+  background-color: #fff;
 }
 
 @font-face {
@@ -21,19 +21,15 @@ body {
   src: url(./res/Poppins/Poppins-Light.ttf);
 }
 
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  max-width: 150pt;
-  
+.message-list-container{
+	display: flex;
 }
 
 
 .container {
   margin: 1rem;
-  text-align: center;
+  /* text-align: center; */
+  margin-bottom:120px;
 }
 
 .navbar {
@@ -80,20 +76,64 @@ body {
 }
 
 .listItem {
-  border:1px solid #777;
+  /* border:1px solid #777; */
   border-radius: 2%;
+  display: inherit !important;
+  box-sizing:border-box;
+   padding:0px 10px !important;
+  
+}
+.listBox{
+	display: flex;
+	 flex-wrap: wrap;
 }
 
 .noLink {
   text-decoration: none;
   color: #484543;
+  /* display: flex; */
+  width: 50%;
+  /* border: 1px solid red; */
+  padding:0 !important;
 }
-
+.center {
+	/* border:1px solid red; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+ /* width: 50%;
+  max-width: 150pt; */
+  
+}
 .itemName {
   font-family: poppinsBlack;
+  font-size: 16px;
 }
+.offerBox{
+	/* border:1px solid red; */
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	padding:1rem 0;
+}
+.offer-price{
+	font-size:.8rem;
+}
+.offerBox .offer-left{text-align:left;max-width:80%;font-size:.24rem;color:#666;}
+
 .itemInfoLine {
   font-family: poppinsLight;
+  text-align:left;
+  font-size: .24rem;
+  color:#444;
+}
+.Discription{
+	font-family: poppinsLight;
+	text-align:left;
+	font-size:14px;
+	font-weight:600;
+	padding:10px 0px;
 }
 
 .itemInfo {
@@ -127,7 +167,7 @@ body {
 
 .message {
   max-width: 70%;
-  padding: 8px 16px;
+  padding: 20px 20px;
   margin-bottom: 8px;
   background: #EEEEEE;
   border-radius: 20px;
@@ -150,7 +190,7 @@ body {
   display: flex;
   bottom: 10%;
   width: 80%;
-  flex:2;
+  flex:11;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -161,13 +201,18 @@ body {
   position: fixed;
   display: flex;
   bottom: 10%;
-  right: 2%;
+  border: none;
+  padding: 12px 32px;
+  text-align: center;
+  right: 5%;
   width: 10%;
   height: inherit;
   box-sizing: border-box;
   border-radius: 40px;
   color: rgb(255, 255, 255);
-  background-color: aqua;
+  background-color: #393939;
+  margin: 8px 0;
+
 }
 
 .create-offer-image {

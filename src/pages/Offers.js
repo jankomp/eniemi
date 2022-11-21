@@ -78,9 +78,9 @@ export default function Offers() {
 
   return (
     <>
-    <h1>Offers</h1>
+    {/* <h1>Offers</h1> */}
     <OfferListFilter returnFilter={returnFilter}></OfferListFilter>
-    <div>
+    <div className="listBox">
       {offers.map(item=>
         MapItem(item))}
         </div>
