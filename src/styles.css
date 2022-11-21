@@ -151,7 +151,9 @@ body {
 }
 
 .index-in-right{
-  width: calc(100% - 45px);
+  width: 100%;
+  height: 30px;
+  margin-top: 20px;
 }
 
 .uploadImgBox{
@@ -195,3 +197,15 @@ margin-left: 2%;
 margin-right: 2%;
 width: 25%;
 }
+
+.applyFilter{margin-top: 10px;  font-size: 16px; 
+color: #fff; width: 100%;height: 45px;
+border-color:white; border-radius: 40px;
+background-color: #393939;text-align: center;
+line-height: 45px;}
+
+.maxPrice{ width: 100%;padding: 12px 20px;
+  margin: 8px 0;border: 2px solid grey;
+  border-radius: 10px; box-sizing: border-box;}
+.clearFilter{text-decoration: underline black;}
+.category{height: 45px; color: black;margin-bottom:100px;}

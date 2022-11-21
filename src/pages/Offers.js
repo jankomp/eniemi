@@ -89,8 +89,7 @@ export default function Offers() {
           <p style={{ textAlign: 'center' }}>
             <b>You have seen all the offers</b>
           </p>
-      }
-      >
+      }>
         <div className="listBox">
         {offers.map(item=>
         MapItem(item))}

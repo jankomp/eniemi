@@ -22,11 +22,13 @@ export default function CategoryDropDown({valueSelected}) {
     return (
         <Select
             name="category"
+            className="category"
             options={categories}
             required={true}
             placeholder="Category"
             dropdownPosition="bottom"
             onChange={valueSelected}
+            sx={{ color: 'primary.main' }}
         >
         </Select>
     );
