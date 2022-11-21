@@ -5,3 +5,13 @@
 .messageInput {
     display: block;
 }
+
+.title-for-chat{
+        font-size: 1rem;
+        font-family: poppinsBlack;
+        font-size: 48px;
+        color: #484543;
+        padding-bottom: 20px;
+        width: 95%;
+        margin: auto;
+}

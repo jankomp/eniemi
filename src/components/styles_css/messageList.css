@@ -1,0 +1,42 @@
+
+.message-list-container {
+    margin-bottom: 32px;
+    width: 100%;
+  }
+  
+.message-list {
+    list-style-type: none;
+    width: 95%;
+    margin: auto;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+.message {
+    max-width: 65%;
+    height: fit-content;
+    padding: 8px 16px;
+    margin-bottom: 8px;
+    border-radius: 20px;
+    text-align: left;
+    font-family: poppinsLight;
+    background: #eeeeeead;
+    color: #393939;
+    overflow: hidden;
+  }
+  
+.own-message {
+    background-color: #393939;
+    color: #f1f2f8;
+    align-self: flex-end;
+  }
+.text {
+    word-wrap: break-word;
+  
+}
+.sender {
+    text-align: right;
+    font-family: poppinsBlack;
+}

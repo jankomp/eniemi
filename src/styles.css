@@ -3,7 +3,6 @@
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  box-sizing:border-box;
   
 }
 
@@ -28,10 +27,6 @@ body {
   width: 50%;
   max-width: 150pt;
 }
-.message-list-container{
-	display: flex;
-}
-
 
 .container {
   width: 90%;
@@ -56,8 +51,6 @@ body {
   display: flex;
   justify-content: space-around;
   text-align: center;
-  margin: 1rem;
-  margin-bottom:120px;
 }
 
 .menu-item {
@@ -69,8 +62,7 @@ body {
   height: 40px;
 }
 
-.navBarLink {
-  
+.navBarLink {  
   white-space: nowrap;
   font-weight: 700;
   font-family: poppinsLight;
@@ -160,154 +152,74 @@ body {
   font-family: poppinsBlack;
 }
 
-.message-list-container {
-  margin-bottom: 16px;
-  flex: 1;
+.css-wmy1p7-ReactDropdownSelect{
+  border-radius: 10px !important;
 }
 
-.message-list {
-  list-style-type: none;
-  height: 100%;
+
+.css-1yc4zyy-DropdownHandleComponent svg{
+  color: #ccc;
+}
+
+.index-inputbox{
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.message {
-  max-width: 70%;
-  padding: 20px 20px;
-  margin-bottom: 8px;
-  background: #EEEEEE;
-  border-radius: 20px;
-  text-align: left;
-  -webkit-text-fill-color: #393939;
-  
-}
-
-.own-message {
-  background: #393939;
-  align-self: flex-end;
-  text-align: right;
-  -webkit-text-fill-color: white;
-}
-
-
-.message-input-container {
-  display: flex;
-  gap: 4px;
-}
-
-.message-input{
-  position: fixed;
-  display: flex;
-  bottom: 10%;
-  width: 80%;
-  flex:11;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border-radius: 40px;
-}
-
-.send-message{
-  position: fixed;
-  display: flex;
-  bottom: 10%;
-  border: none;
-  padding: 12px 32px;
+.index-in-left{
+  width: 45px;
   text-align: center;
-  right: 5%;
-  width: 10%;
-  height: inherit;
-  box-sizing: border-box;
-  border-radius: 40px;
-  color: rgb(255, 255, 255);
-  background-color: #393939;
-  margin: 8px 0;
-
 }
 
-.heading{
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #FFFFFF;
+.index-in-left img{
+  width: 20px;
+  height: 20px;
 }
 
+.index-in-right{
+  width: calc(100% - 45px);
+}
+
+.uploadImgBox{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-upload{
+  margin-right: 10px; 
+  width: 80px;
+  height: 80px;
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  line-height: 80px;
+  text-align: center;}
 
 
-
-  .css-wmy1p7-ReactDropdownSelect{
-   border-radius: 10px !important;
-  }
-
-
-  .css-1yc4zyy-DropdownHandleComponent svg{
-    color: #ccc;
-  }
-
-  .index-inputbox{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-  .index-in-left{
-    width: 45px;
-    text-align: center;
-  }
-
-  .index-in-left img{
-    width: 20px;
-    height: 20px;
-  }
-
-  .index-in-right{
-    width: calc(100% - 45px);
-  }
-
-  .uploadImgBox{
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .image-upload{
-    margin-right: 10px; 
-    width: 80px;
-    height: 80px;
-    position: relative;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    line-height: 80px;
-    text-align: center;}
-
-
-  .image-upload span{font-size: 30px;color: #888;}
-  .image-input{
-    opacity: 0; width: 70px; height: 70px;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);
-  }
-  .textInput,.textInput1{border: none; border-bottom:1px solid #ccc ;padding: 20px 5px;padding-bottom: 5px; width: 100%;outline: none;}
-  .textInput1{width: 48%;}
-  .textInput-textarea{outline: none;width: 100%;border: 1px solid #ccc;height: 250px;margin-top: 12px; padding: 5px;border-radius: 10px;}
+.image-upload span{font-size: 30px;color: #888;}
+.image-input{
+  opacity: 0; width: 70px; height: 70px;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);
+}
+.textInput,.textInput1{border: none; border-bottom:1px solid #ccc ;padding: 20px 5px;padding-bottom: 5px; width: 100%;outline: none;}
+.textInput1{width: 48%;}
+.textInput-textarea{outline: none;width: 100%;border: 1px solid #ccc;height: 250px;margin-top: 12px; padding: 5px;border-radius: 10px;}
 .submitCreate{margin-top: 20px;  font-size: 16px; color: #fff; width: 100%;height: 45px;border-radius: 40px;background-color: rgba(0, 0, 0, 0.6);text-align: center;line-height: 45px;}
 .uploadImgBox1 {justify-content: space-between;}
 .uploadImgBox1>div{width: 50%;}
 .uploadImgBox  .css-wmy1p7-ReactDropdownSelect{
-  /* border-radius: 10px !important; */
-  width: 100% !important;
-  border: none !important;
-  border-radius: 0 !important;
-  border-bottom: 1px solid #ccc !important;
-  padding: 20px 5px !important;padding-bottom: 5px !important;outline: none;
- }
+/* border-radius: 10px !important; */
+width: 100% !important;
+border: none !important;
+border-radius: 0 !important;
+border-bottom: 1px solid #ccc !important;
+padding: 20px 5px !important;padding-bottom: 5px !important;outline: none;
+}
 
- .create-offer-image {
-  display: inline;
-  margin-left: 2%;
-  margin-right: 2%;
-  width: 40%;
-  }
-
-
-
+.create-offer-image {
+display: inline;
+margin-left: 2%;
+margin-right: 2%;
+width: 40%;
+}

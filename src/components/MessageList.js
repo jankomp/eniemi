@@ -4,6 +4,8 @@ import { db } from '../firebase.js';
 import { collection , query, orderBy , onSnapshot} from 'firebase/firestore';
 import { Container } from '@mui/system';
 
+// Add styles to the page
+import "./styles_css/messageList.css"
 
 
 export default function MessageList({ chatId }) {
