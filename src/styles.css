@@ -179,7 +179,7 @@ body {
 .textInput,.textInput1{border: none; border-bottom:1px solid #ccc ;padding: 20px 5px;padding-bottom: 5px; width: 100%;outline: none;}
 .textInput1{width: 48%;}
 .textInput-textarea{outline: none;width: 100%;border: 1px solid #ccc;height: 250px;margin-top: 12px; padding: 5px;border-radius: 10px;}
-.submitCreate{margin-top: 20px;  font-size: 16px; color: #fff; width: 100%;height: 45px;border-radius: 40px;background-color: rgba(0, 0, 0, 0.6);text-align: center;line-height: 45px;}
+.submitCreate{margin-top: 20px; margin-bottom: 60px;  font-size: 16px; color: #fff; width: 100%;height: 45px;border-radius: 40px;background-color: rgba(0, 0, 0, 0.6);text-align: center;line-height: 45px;}
 .uploadImgBox1 {justify-content: space-between;}
 .uploadImgBox1>div{width: 50%;}
 .uploadImgBox  .css-wmy1p7-ReactDropdownSelect{
@@ -202,10 +202,10 @@ width: 25%;
 color: #fff; width: 100%;height: 45px;
 border-color:white; border-radius: 40px;
 background-color: #393939;text-align: center;
-line-height: 45px;}
-
+line-height: 45px; font-family: poppinsLight;}
+.maxPriceLabel { font-family: poppinsLight; }
 .maxPrice{ width: 100%;padding: 12px 20px;
   margin: 8px 0;border: 2px solid grey;
-  border-radius: 10px; box-sizing: border-box;}
-.clearFilter{text-decoration: underline black;}
-.category{height: 45px; color: black;margin-bottom:100px;}
+  border-radius: 10px; box-sizing: border-box;; font-family: poppinsLight;}
+.clearFilter{text-decoration: underline black; font-family: poppinsLight;}
+.category{height: 45px; color: black;margin-bottom:100px;font-family: poppinsLight;}

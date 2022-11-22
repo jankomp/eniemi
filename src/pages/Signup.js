@@ -71,7 +71,7 @@ function Signup() {
                 <form action="#" onSubmit={createUser}>
                     <div className="field_group">
                         <div className="labelgroup">
-                            <label for="name" >Your name </label>
+                            <label htmlFor="name" >Your name </label>
                         </div>
                         <input name="name" type="text" placeholder="Enter your name" className="input_bar" onChange={HandleInputChange}></input>
         
@@ -79,7 +79,7 @@ function Signup() {
 
                     <div className="field_group">
                             <div className="labelgroup">
-                                <label for="email">Your email</label>
+                                <label htmlFor="email">Your email</label>
                             </div>
                             <input name="email" type="email" placeholder="Enter your email" className="input_bar" onChange={HandleInputChange}></input>
 
@@ -87,7 +87,7 @@ function Signup() {
 
                     <div className="field_group">
                             <div className="labelgroup">
-                                <label for="password">Create your password </label>
+                                <label htmlFor="password">Create your password </label>
                             </div>
                             <input name="password" type="password" placeholder="Enter your password" className="input_bar" onChange={HandleInputChange}></input>
                     </div>

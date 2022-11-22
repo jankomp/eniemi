@@ -6,6 +6,8 @@ import { getAuth } from "firebase/auth"
 
 import OfferListItem from '../components/OfferListItem'
 
+import "./styles_css/profile.css"
+
 export default function Profile() {
   const auth = getAuth();
   const user = auth.currentUser;
@@ -29,8 +31,8 @@ export default function Profile() {
   }
 
   return (<>
-    <h1>{user.displayName}</h1>
-    <p>{user.email}</p>
+    <h1 className="userName">{user.displayName}</h1>
+    <p className="userEmail">{user.email}</p>
     <div className="listBox">
         {offers.map(item=>
         MapItem(item))}

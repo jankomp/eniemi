@@ -46,7 +46,7 @@ export default function OfferListFilter({returnFilter}) {
             
             </div>
 
-            <label>
+            <label className="maxPriceLabel">
             Maximum price:
             </label>
             <input 

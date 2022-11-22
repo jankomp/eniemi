@@ -17,7 +17,6 @@ export default function Offers() {
   const [offers, setOffers] = useState([]);
 
   useEffect(() => {
-    console.log("useEffect");
     q=query(offersRef,orderBy("timestamp","desc"), limit(itemsPerPage));
     getOffers();
   }, []);
@@ -58,8 +57,6 @@ export default function Offers() {
     if (lastOffer){
       ReturnQuery(localFilter, lastOffer);
       
-      console.log(q);
-
       getOffers();
     }
   }
