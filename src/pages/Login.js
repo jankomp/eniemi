@@ -57,7 +57,7 @@ function Login() {
                 <form onSubmit={handleLogin}>
                     <div className="field_group">
                             <div className="labelgroup">
-                                <label for="email">Your email</label>
+                                <label htmlFor="email">Your email</label>
                             </div>
                             <input name="email" id="email" placeholder="Enter your email" className="input_bar" onChange={HandleInputChange}></input>
 
@@ -65,7 +65,7 @@ function Login() {
 
                     <div className="field_group">
                             <div className="labelgroup">
-                                <label for="password">Create your password </label>
+                                <label htmlFor="password">Create your password </label>
                             </div>
                             <input name="password" id="password" placeholder="Enter your password" className="input_bar" type = "password" onChange={HandleInputChange}></input>
                     </div>

@@ -80,7 +80,7 @@ export default function Chats() {
 
     return (
         <>
-        <h1>Chats</h1>
+        <h1 className="chatsPageTitle">Chats</h1>
         <div>
           {chats.map(chatItem=>
             MapChatItem(chatItem))}

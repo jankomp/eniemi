@@ -17,7 +17,6 @@ export default function Offers() {
   const [offers, setOffers] = useState([]);
 
   useEffect(() => {
-    console.log("useEffect");
     q=query(offersRef,orderBy("timestamp","desc"), limit(itemsPerPage));
     getOffers();
   }, []);
@@ -58,8 +57,6 @@ export default function Offers() {
     if (lastOffer){
       ReturnQuery(localFilter, lastOffer);
       
-      console.log(q);
-
       getOffers();
     }
   }
@@ -104,7 +101,7 @@ export default function Offers() {
         dataLength={offers.length} 
         next={GetMoreOffers}
         hasMore={true}
-        loader={<h4>Loading...</h4>}
+        //loader={<h4>Loading...</h4>}
         endMessage={
           <p style={{ textAlign: 'center' }}>
             <b>You have seen all the offers</b>
