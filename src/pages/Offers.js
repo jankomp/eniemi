@@ -101,7 +101,7 @@ export default function Offers() {
         dataLength={offers.length} 
         next={GetMoreOffers}
         hasMore={true}
-        loader={<h4>Loading...</h4>}
+        //loader={<h4>Loading...</h4>}
         endMessage={
           <p style={{ textAlign: 'center' }}>
             <b>You have seen all the offers</b>
