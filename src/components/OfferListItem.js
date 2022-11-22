@@ -1,4 +1,4 @@
-import { List , ListItem, ListItemAvatar, ListItemText } from '@mui/material';
+import { List , ListItem, ListItemAvatar } from '@mui/material';
 
 const OfferListItem=({arr})=>{
     let imageurl;

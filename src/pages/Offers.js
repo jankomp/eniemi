@@ -9,7 +9,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 const offersRef = collection(db,"offers");
 const itemsPerPage = 8;
-let localFilter;
+let localFilter = { category: '', maxPrice: 0 };
 let q=query(offersRef,orderBy("timestamp","desc"), limit(itemsPerPage));
 let offerSnapshot;
 
@@ -22,19 +22,27 @@ export default function Offers() {
     getOffers();
   }, []);
 
-  const returnFilter = (event, filter) => {
+  const returnFilter = async(event, filter) => {
     event.preventDefault();
-    console.log(filter);
+    
     localFilter = filter;
     
     q = ReturnQuery(filter);
 
-    setOffers([]);
-    console.log(offers);
-    //TODO: why is array not cleared?
 
-    getOffers();
+    //TODO: setOffers([]); <- why is array not cleared from this?
+    await clearOffers();
+
+    await getOffers();
   };
+
+  function clearOffers() {
+    const offersLength = offers.length;
+    for (let i = 0; i < offersLength; i++) {
+      offers.pop();
+    }
+    setOffers(offers);
+  }
 
   async function getOffers() {
     offerSnapshot = await getDocs(q);
@@ -45,11 +53,22 @@ export default function Offers() {
   }
 
   const GetMoreOffers = async () => {
-    //e.preventDefault();
     const lastOffer = offerSnapshot.docs[offerSnapshot.docs.length - 1];
+
+    if (lastOffer){
+      ReturnQuery(localFilter, lastOffer);
+      
+      console.log(q);
+
+      getOffers();
+    }
+  }
+
+  function ReturnQuery(filter, lastOffer) {
+    let localQuery;
     if (lastOffer) {
       if (!localFilter || (!localFilter.maxPrice && !localFilter.category)) {
-          q=query(offersRef,orderBy("timestamp","desc"), startAfter(lastOffer), limit(itemsPerPage));
+        q=query(offersRef,orderBy("timestamp","desc"), startAfter(lastOffer), limit(itemsPerPage));
       }
       if (localFilter.maxPrice && localFilter.category) {
         q=query(offersRef, where("price", "<=", Number(localFilter.maxPrice)),orderBy("price", "asc"), where("category","==",localFilter.category), startAfter(lastOffer), limit(itemsPerPage));
@@ -61,27 +80,18 @@ export default function Offers() {
         q=query(offersRef, where("category","==",localFilter.category), startAfter(lastOffer), limit(itemsPerPage));
       }
     } else {
-      q = ReturnQuery(localFilter);
-    }
-    
-    console.log(q);
-
-    getOffers();
-  }
-
-  function ReturnQuery(filter) {
-    let localQuery;
-    if (!filter.maxPrice && !filter.category) {
-      localQuery=query(offersRef,orderBy("timestamp","desc"), limit(itemsPerPage));
-    } 
-    if (filter.maxPrice && filter.category) {
-      localQuery=query(offersRef, where("price", "<=", Number(filter.maxPrice)),orderBy("price", "asc"), where("category","==",filter.category), limit(itemsPerPage));
-    }  
-    if (filter.maxPrice && !filter.category) {
-      localQuery=query(offersRef, where("price", "<=", Number(filter.maxPrice)),orderBy("price", "asc"), limit(itemsPerPage));
-    }
-    if (filter.category && !filter.maxPrice) {
-      localQuery=query(offersRef, where("category","==",filter.category), limit(itemsPerPage));
+      if (!filter.maxPrice && !filter.category) {
+        localQuery=query(offersRef,orderBy("timestamp","desc"), limit(itemsPerPage));
+      } 
+      if (filter.maxPrice && filter.category) {
+        localQuery=query(offersRef, where("price", "<=", Number(filter.maxPrice)),orderBy("price", "asc"), where("category","==",filter.category), limit(itemsPerPage));
+      }  
+      if (filter.maxPrice && !filter.category) {
+        localQuery=query(offersRef, where("price", "<=", Number(filter.maxPrice)),orderBy("price", "asc"), limit(itemsPerPage));
+      }
+      if (filter.category && !filter.maxPrice) {
+        localQuery=query(offersRef, where("category","==",filter.category), limit(itemsPerPage));
+      }
     }
     return localQuery;
   }
