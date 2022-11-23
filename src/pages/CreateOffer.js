@@ -187,15 +187,15 @@ function CreateOfferComponent(props) {
 
             </div>
             <div>
-                <label>€ </label>
+                <label className="priceLabel">€ </label>
                 <input
                     name="price"
                     type="number"
                     className="textInput1"
-                    placeholder="Price €"
+                    placeholder="0"
                     value={offer.price}
                     onChange={HandleInputChange} />
-
+        
                 <CategoryDropDown  valueSelected={CategorySelected} />
             </div>
             <br />

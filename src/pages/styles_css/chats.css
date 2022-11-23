@@ -10,8 +10,10 @@
 
 .chatItem {
     list-style-type: none;
-    border:1px solid #777;
-    border-radius: 2%;
+    /* border:1px solid #777; */
+    border-radius: 10px;
+    background-color: #eeeeeead;
+    margin-bottom: 2%;
 }
 
 .chatTitle {
