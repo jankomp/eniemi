@@ -9,7 +9,7 @@ const OfferListItem=({arr})=>{
     return (
         <List className="offer__list">
         <ListItem className="listItem">
-            <img src={imageurl} alt="Offer image" className="center"/>
+            <img src={imageurl} alt="Offer image" className="centerImage"/>
             <div className="itemInfo">
                 <h2 className="itemName">{arr.data.name}</h2>
                 <br />
