@@ -7,6 +7,9 @@ import OfferListItem from '../components/OfferListItem'
 import OfferListFilter from "../components/OfferListFilter.js";
 import InfiniteScroll from "react-infinite-scroll-component";
 
+// Add styles to the page
+import "./styles_css/offers.css"
+
 const offersRef = collection(db,"offers");
 const itemsPerPage = 8;
 let localFilter = { category: '', maxPrice: 0 };
