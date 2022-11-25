@@ -1,5 +1,8 @@
 import { List , ListItem, ListItemAvatar } from '@mui/material';
 
+// Add styles to the page
+import "./styles_css/offerListItem.css"
+
 const OfferListItem=({arr})=>{
     let imageurl;
     if (arr.data.images) {
@@ -11,16 +14,35 @@ const OfferListItem=({arr})=>{
         <ListItem className="listItem">
             <img src={imageurl} alt="Offer image" className="centerImage"/>
             <div className="itemInfo">
-                <h2 className="itemName">{arr.data.name}</h2>
-                <br />
-                <p className="itemInfoLine">{arr.data.desc}</p>
-                <br />
-                <p className="itemInfoLine">{arr.data.price} €</p>
-                <br />
+                <div className="itemName-div">
+                    {arr.data.name}
+                </div>
+                {/* <h2 ></h2>
+                <br /> */}
+                
+                {/* <p className="itemInfoLine">{arr.data.desc}</p>
+                <br /> */}
+
+                <div className="itemInfoLine-more-div">
+                    <div className="itemInfoLine-div">
+                        {arr.data.desc}
+                        
+                    </div>
+                    <span className="more">
+                    ...
+                    </span>
+                </div>
+
+                <div className="itemPriseLine-div">
+                    {arr.data.price} €
+                </div>
+                {/* <p className="itemInfoLine">{arr.data.price} €</p>
+                <br /> */}
             </div>
         <ListItemAvatar />
         </ListItem>
         </List>
+
     )
 };
 export default OfferListItem;

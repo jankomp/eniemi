@@ -115,11 +115,11 @@ body {
   max-width: 150pt; */
   
 }
+
 .itemName {
   font-family: poppinsBlack;
   font-size: 175%;
 }
-
 
 .userFormLine {
   font-family: poppinsLight;
@@ -180,9 +180,11 @@ body {
 
 
 .image-upload span{font-size: 30px;color: #888;}
+
 .image-input{
   opacity: 0; width: 70px; height: 70px;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);
 }
+
 .textInput,.textInput1{border: none; border-bottom:1px solid #ccc ;padding: 20px 5px;padding-bottom: 5px; width: 100%;outline: none; font-family: poppinsLight;}
 .textInput1{width: 20%; margin-bottom: 5px;}
 .priceLabel {font-family: poppinsLight;}
@@ -190,13 +192,14 @@ body {
 .submitCreate{margin-top: 20px; margin-bottom: 60px;  font-size: 16px; color: #fff; width: 100%;height: 45px;border-radius: 40px;background-color: rgba(0, 0, 0, 0.6);text-align: center;line-height: 45px;}
 .uploadImgBox1 {justify-content: space-between;}
 .uploadImgBox1>div{width: 50%;}
+
 .uploadImgBox  .css-wmy1p7-ReactDropdownSelect{
-/* border-radius: 10px !important; */
-width: 100% !important;
-border: none !important;
-border-radius: 0 !important;
-border-bottom: 1px solid #ccc !important;
-padding: 20px 5px !important;padding-bottom: 5px !important;outline: none;
+  /* border-radius: 10px !important; */
+  width: 100% !important;
+  border: none !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid #ccc !important;
+  padding: 20px 5px !important;padding-bottom: 5px !important;outline: none;
 }
 
 .create-offer-image {

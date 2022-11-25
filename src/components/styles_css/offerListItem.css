@@ -1,0 +1,47 @@
+.itemInfo {
+    margin: 0;
+}
+
+.itemName-div {
+    width: 98%;
+    margin: auto;
+    font-family: poppinsBlack;
+    font-size: 22px;
+    line-height: 24px;
+    word-wrap: break-word;
+    padding-bottom: 4px;
+}
+
+.itemInfoLine-more-div {
+    padding-bottom: 6px;
+}
+
+.itemInfoLine-div {
+    max-height: 122px;
+    overflow: hidden;
+    text-align: left;
+    font-family: poppinsLight;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.more {
+    display: none;
+    font-family: poppinsLight;
+    font-size: 14px;
+    line-height: 10px;
+    text-decoration: underline;
+}
+
+.itemPriseLine-div{
+    max-height: 122px;
+    overflow: hidden;
+    text-align: left;
+    font-family: poppinsBlack;
+    font-size: 18px;
+    line-height: 20px;
+}
+/* .itemNam {
+    font-family: poppinsBlack;
+    font-size: 16px;
+} */
