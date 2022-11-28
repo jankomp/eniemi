@@ -23,15 +23,10 @@ const OfferListItem=({arr})=>{
                 {/* <p className="itemInfoLine">{arr.data.desc}</p>
                 <br /> */}
 
-                <div className="itemInfoLine-more-div">
-                    <div className="itemInfoLine-div">
-                        {arr.data.desc}
-                        
-                    </div>
-                    <span className="more">
-                    ...
-                    </span>
-                </div>
+                <p className="itemInfoLine">
+                    {arr.data.desc}
+                    
+                </p>
 
                 <div className="itemPriseLine-div">
                     {arr.data.price} €

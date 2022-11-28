@@ -8,10 +8,10 @@
     font-family: poppinsBlack;
 }
 
-.itemInfoLine {
+.detailedItemInfoLine {
     font-family: poppinsLight;
     text-align:left;
-    font-size: 80%;
+    font-size: 90%;
     color:#444;
 }
 .Description{

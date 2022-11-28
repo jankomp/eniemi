@@ -49,7 +49,7 @@ export default function DetailedOffer() {
         </div>
         </div>
         <div className="Description">Description</div>
-        <div><p className="itemInfoLine">{offer.desc}</p>
+        <div><p className="detailedItemInfoLine">{offer.desc}</p>
         <br/>	
         <br/>	
         <p className="itemInfoLine">Seller: {offer.creator}</p></div>
